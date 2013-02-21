@@ -1,0 +1,270 @@
+set nocompatible
+let mapleader = ","
+
+" NeoBundle.vim
+" ==============================================================================
+filetype off
+if has('vim_starting')
+	set runtimepath+=~/.vim/neobundle.vim.git/
+endif
+
+call neobundle#rc(expand('~/.vim/bundle/'))
+
+NeoBundle 'Shougo/vimfiler'
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/neocomplcache'
+NeoBundle 'Shougo/neosnippet'
+NeoBundle 'h1mesuke/unite-outline'
+NeoBundle 'tsaleh/vim-align'
+NeoBundle 'tpope/vim-surround'
+NeoBundle 'othree/eregex.vim'
+NeoBundle 'rgarver/Kwbd.vim'
+NeoBundle 'vim-scripts/The-NERD-Commenter'
+NeoBundle 'vim-scripts/sudo.vim'
+NeoBundle 'fuenor/qfixgrep.git'
+NeoBundle 'glidenote/memolist.vim'
+NeoBundle 'kien/ctrlp.vim'
+NeoBundle 'nathanaelkane/vim-indent-guides.git'
+
+" HTML
+NeoBundle 'git://gist.github.com/411828.git'
+NeoBundle 'mattn/zencoding-vim'
+
+" JavaScript
+NeoBundle 'jiangmiao/simple-javascript-indenter'
+NeoBundle 'jelera/vim-javascript-syntax'
+NeoBundle 'jQuery'
+
+" Ruby
+NeoBundle 'ruby.vim'
+
+" CoffeeScript
+NeoBundle 'kchmck/vim-coffee-script'
+
+" Markdown
+NeoBundle 'tpope/vim-markdown'
+
+" ColorScheme
+NeoBundle 'chriskempson/base16-vim.git'
+
+scriptencoding utf-8
+set shortmess+=I
+set nowritebackup
+set nobackup
+set noswapfile
+set hidden
+set autochdir
+filetype plugin indent on
+
+colorscheme base16-mocha
+set t_Co=256
+
+
+" Encoding
+" ==============================================================================
+set fileencodings=utf-8,cp932,euc-jp,iso-2022-jp,ucs-2,latin1
+set encoding=utf-8
+set termencoding=utf-8
+
+
+" Edit
+" ==============================================================================
+set backspace=indent,eol,start
+set clipboard+=unnamed
+set history=50
+set nrformats-=octal
+set timeoutlen=3500
+set formatoptions+=mM
+set virtualedit=block
+set whichwrap=b,s,h,l,<,>,[,],~
+if exists('&ambiwidth')
+	set ambiwidth=double
+endif
+set wildmenu
+
+" make したら :copen
+autocmd QuickfixCmdPost make copen
+
+" Indent
+" -----------------------------------------------------------------------------
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set autoindent
+set cindent
+
+
+" View
+" ==============================================================================
+set number
+set title
+set cmdheight=2
+set laststatus=2
+set showcmd
+set ruler
+set display=lastline
+set noequalalways
+set shellslash
+set list
+set listchars=tab:^\ ,trail:~
+set showmatch
+
+" 対応する括弧の強調
+set matchtime=1
+let loaded_matchparen = 1
+
+set showtabline=2
+
+set statusline=%t\ %m%r%h%w[%Y][%{&fenc}][%{&ff}]%=%11p%%\ %l,%c
+
+
+" Search
+" ==============================================================================
+set ignorecase
+set smartcase
+set incsearch
+set wrapscan
+
+" 検索結果が中央に来るように
+nnoremap n nzzzv
+nnoremap N Nzzzv
+
+" 検索結果ハイライト
+if &t_Co > 2 || has("gui")
+	syntax on
+	set hlsearch
+endif
+
+
+" Keymap
+" ==============================================================================
+inoremap <C-j> <Esc>
+vnoremap <C-j> <Esc>
+
+noremap ; :
+noremap : ;
+
+nnoremap <F5> :source %<CR>
+nnoremap ZZ <Nop>
+
+nnoremap j gj
+nnoremap k gk
+
+nnoremap <silent> <ESC><ESC> :nohl<CR>
+
+nnoremap <silent> <Leader>tc :<C-u>tabnew<CR>:tabmove<CR>
+nnoremap <silent> <Leader>tk :<C-u>tabclose<CR>
+nnoremap <silent> <Leader>tn :<C-u>tabnext<CR>
+nnoremap <silent> <Leader>tp :<C-u>tabprevious<CR>
+nnoremap <C-l> :<C-u>tabnext<CR>
+nnoremap <C-h> :<C-u>tabprevious<CR>
+
+
+" Plugin
+" ==============================================================================
+
+" unite.vim
+" ------------------------------------------------------------------------------
+let g:unite_source_file_mru_time_format = ''
+let g:unite_enable_start_insert = 1
+let g:unite_source_file_mru_ignore_pattern='.*\/$\|.*Application\ Data.*'
+nnoremap <silent> <Leader>ur  :<C-u>Unite file_mru<CR>
+nnoremap <silent> <Leader>ub  :<C-u>Unite buffer_tab<CR>
+nnoremap <silent> <Leader>uf  :<C-u>Unite file_rec<CR>
+nnoremap <silent> <Leader>uo  :<C-u>Unite outline<CR>
+nnoremap <silent> <Leader>ul  :<C-u>Unite line<CR>
+nnoremap <silent> <Leader>uu  :<C-u>Unite buffer_tab file_mru bookmark file_rec<CR>
+autocmd FileType unite call s:unite_my_settings()
+function! s:unite_my_settings()
+	imap <buffer> jj <Plug>(unite_insert_leave)
+	nmap <buffer> <Esc> <Plug>(unite_exit)
+	imap <buffer> <Esc> <Plug>(unite_exit)
+	imap <buffer> <C-j> <Plug>(unite_exit)
+	imap <buffer> <C-o> <Plug>(unite_insert_leave):<C-u>call unite#mappings#do_action('above')<CR>
+endfunction
+
+" neocomplcache
+" ------------------------------------------------------------------------------
+let g:neocomplcache_enable_at_startup = 1
+let g:neocomplcache_max_list = 20
+let g:neocomplcache_auto_completion_start_length = 2
+let g:neocomplcache_enable_smart_case = 1
+let g:neocomplcache_force_overwrite_completefunc = 1
+imap <C-b> <Plug>(neocomplcache_snippets_expand)
+smap <C-b> <Plug>(neocomplcache_snippets_expand)
+inoremap <expr><C-y> neocomplcache#close_popup()
+inoremap <expr><C-e> neocomplcache#cancel_popup()
+imap <C-l> <Plug>(neocomplcache_start_unite_complete)
+inoremap <expr><C-g> neocomplcache#undo_completion()
+inoremap <expr><C-l> neocomplcache#complete_common_string()
+inoremap <expr><CR> pumvisible() ? neocomplcache#close_popup() : "\<CR>"
+inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr><C-h> neocomplcache#smart_close_popup() . "\<C-h>"
+inoremap <expr><BS> neocomplcache#smart_close_popup() . "\<C-h>"
+inoremap <expr><C-y> neocomplcache#close_popup()
+inoremap <expr><C-e> neocomplcache#cancel_popup()
+command! -nargs=* Nes NeoComplCacheEditSnippets
+
+" neosnippet
+" ------------------------------------------------------------------------------
+let g:neosnippet#snippets_directory='~/.vim/snippets'
+imap <C-k> <Plug>(neosnippet_expand_or_jump)
+smap <C-k> <Plug>(neosnippet_expand_or_jump)
+
+" kwbd
+" ------------------------------------------------------------------------------
+nnoremap <C-q><C-q> :Kwbd<CR>
+
+" eregex
+" ------------------------------------------------------------------------------
+let g:eregex_meta_chars = '^$()|[]{}.*+?\/'
+let g:vregex_meta_chars = '^$|[].*\/'
+""" line
+nnoremap s :<C-u>S//g<Left><Left>
+""" buffer
+nnoremap S :<C-u>%S//g<Left><Left>
+""" buffers
+nnoremap <Leader>S :<C-u>bufdo %S//g<Left><Left>
+
+" zencoding-vim
+" ------------------------------------------------------------------------------
+let g:use_zen_complete_tag = 1
+setlocal omnifunc=zencoding#CompleteTag
+
+" Align
+" ------------------------------------------------------------------------------
+let g:Align_xstrlen=3
+
+" VimFiler
+" ------------------------------------------------------------------------------
+let g:vimfiler_as_default_explorer = 1
+
+" indent-guides
+" ------------------------------------------------------------------------------
+let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_guide_size = 1
+
+" memolist
+" ------------------------------------------------------------------------------
+let g:memolist_path = '~/Dropbox/memolist.vim'
+let g:memolist_qfixgrep = 1
+nnoremap <Leader>mf :exe "CtrlP" g:memolist_path<CR>
+nnoremap <Leader>mc :MemoNew<CR>
+nnoremap <Leader>ml :MemoList<CR>
+nnoremap <Leader>mg :MemoGrep<CR>
+
+" endtagcomment
+" ------------------------------------------------------------------------------
+nnoremap <Leader>cc :<C-u>call Endtagcomment()<CR>
+
+" simple-javascript-indenter
+" ------------------------------------------------------------------------------
+let g:SimpleJsIndenter_BriefMode = 1
+let g:SimpleJsIndenter_CaseIndentLevel = -1
+
+" 外部設定ファイル
+" ==============================================================================
+" vimrc.local が存在していれば読み込む
+if filereadable(expand('~/.vim/vimrc.local'))
+	source ~/.vim/vimrc.local
+endif

@@ -1,0 +1,7 @@
+if [ -f $HOME/.zsh/zshenv.mine ]; then
+	source $HOME/.zsh/zshenv.mine
+fi
+
+if [ -f $HOME/.zsh/zshenv.local ]; then
+	source $HOME/.zsh/zshenv.local
+fi

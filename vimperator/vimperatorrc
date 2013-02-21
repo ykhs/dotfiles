@@ -1,0 +1,31 @@
+" options
+" ==============================================================================
+set gui=none
+set tabnumbers
+set hintchars=hjklasdfgyuiopqwertnmzxcvb
+
+" mappings
+" ==============================================================================
+map <A-r> <esc>:so ~/.vimperatorrc<cr>
+
+nnoremap j 7j
+nnoremap k 7k
+
+map <C-r> :restart<CR>
+map <C-BS> gU
+
+nnoremap h <C-p>
+nnoremap l <C-n>
+
+nnoremap <C-h> :tabmove! -1<CR><Esc>
+nnoremap <C-l> :tabmove! +1<CR><Esc>
+
+" qmark
+map m :qmark<Space>
+map M :qmarks<CR>
+
+map . :buffer<Space>
+
+map q <C-z>
+
+echo "Done"

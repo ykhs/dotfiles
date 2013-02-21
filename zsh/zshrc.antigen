@@ -1,0 +1,9 @@
+if [ -f $HOME/.zsh/antigen/antigen.zsh ]; then
+	source $HOME/.zsh/antigen/antigen.zsh
+
+	antigen-bundle git
+	antigen-bundle gitfast
+
+	antigen-theme blinks
+fi
+

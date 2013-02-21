@@ -1,0 +1,67 @@
+snippet fn
+    function ${1:function_name}(${2:arguments}) {
+        ${3:// do something...}
+    }
+
+snippet f
+    function(${1:arguments}) {
+        ${2:// do something...}
+    };
+
+snippet if
+    if (${1:true}) {
+        ${2:// do something...}
+    }
+
+snippet ife
+    if (${1:true}) {
+        ${2:// do something...}
+    } else {
+        ${3:// do something...}
+    }
+
+snippet ifif
+    if (${1:true}) {
+        ${2:// do something...}
+    } else if (${3:true}) {
+        ${4:// do something...}
+    }
+
+snippet switch
+    switch(${1}) {
+        case '${2}':
+            ${3:// do something...}
+            break;
+        ${4}
+        default:
+            ${5:// do something...}
+    }
+
+snippet case
+    case '${1}':
+        ${2:// do something...}
+        break;
+    ${3}
+
+snippet for
+    for (var ${1:i} = 0, ${2:l} = ${3}.length; $1 < $2; $1${4:++}) {
+        ${5}$3[$1]
+    }
+
+snippet proto
+    ${1:class_name}.prototype.${2:method_name} = function(${3:arguments}) {
+        ${4:// do something...}
+    };
+
+snippet self
+    var self = this;
+
+snippet con
+    console.log(${1});
+
+snippet conm
+    console.log(arguments.callee.name, ${1});
+
+snippet trace
+    console.trace();
+
