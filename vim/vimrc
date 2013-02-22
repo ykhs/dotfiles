@@ -27,7 +27,6 @@ NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'nathanaelkane/vim-indent-guides.git'
 
 " HTML
-NeoBundle 'git://gist.github.com/411828.git'
 NeoBundle 'mattn/zencoding-vim'
 
 " JavaScript
