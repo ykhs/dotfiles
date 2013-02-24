@@ -134,6 +134,8 @@ if &t_Co > 2 || has("gui")
 	set hlsearch
 endif
 
+au BufEnter * silent! lcd %:p:h
+
 
 " Keymap
 " ==============================================================================
