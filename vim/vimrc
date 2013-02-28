@@ -239,6 +239,7 @@ let g:Align_xstrlen=3
 " VimFiler
 " ------------------------------------------------------------------------------
 let g:vimfiler_as_default_explorer = 1
+nnoremap <Leader>vc :<C-u>VimFilerCurrentDir<CR>
 
 " indent-guides
 " ------------------------------------------------------------------------------
