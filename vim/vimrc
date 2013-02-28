@@ -53,7 +53,6 @@ set nowritebackup
 set nobackup
 set noswapfile
 set hidden
-set autochdir
 filetype plugin indent on
 
 colorscheme base16-mocha
