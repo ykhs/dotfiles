@@ -1,0 +1,14 @@
+{
+	"passfail": false,
+	"browser": true,
+	"node": true,
+	"es5": true,
+	"dojo": true,
+	"jquery": true,
+	"devel": true,
+	"debug": true,
+	"evil": true,
+	"smarttabs": true,
+	"undef": true,
+	"unused": true
+}

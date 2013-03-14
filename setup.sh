@@ -56,3 +56,7 @@ fi
 ln -nsv ${dotfiles_dir}/zsh/antigen.git $HOME/.zsh/antigen
 ln -fsv ${dotfiles_dir}/zsh/zshrc.antigen $HOME/.zsh/zshrc.antigen
 
+# jshint
+# ------------------------------------------------------------------------------
+ln -fsv ${dotfiles_dir}/jshint/jshintrc $HOME/.jshintrc
+
