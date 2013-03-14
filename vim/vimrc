@@ -47,6 +47,9 @@ NeoBundle 'tpope/vim-markdown'
 " ColorScheme
 NeoBundle 'chriskempson/base16-vim.git'
 
+" Syntax Check
+NeoBundle 'scrooloose/syntastic.git'
+
 scriptencoding utf-8
 set shortmess+=I
 set nowritebackup
@@ -263,6 +266,13 @@ nnoremap <Leader>cc :<C-u>call Endtagcomment()<CR>
 " ------------------------------------------------------------------------------
 let g:SimpleJsIndenter_BriefMode = 1
 let g:SimpleJsIndenter_CaseIndentLevel = -1
+
+" simple-javascript-indenter
+" ------------------------------------------------------------------------------
+let g:syntastic_mode_map = { 'mode': 'passive',
+                           \ 'active_filetypes': ['ruby', 'javascript'],
+                           \ 'passive_filetypes': [] }
+
 
 " 外部設定ファイル
 " ==============================================================================
