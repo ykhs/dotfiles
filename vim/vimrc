@@ -182,7 +182,7 @@ nnoremap <silent> <Leader>ur  :<C-u>Unite file_mru<CR>
 nnoremap <silent> <Leader>ub  :<C-u>Unite buffer_tab<CR>
 nnoremap <silent> <Leader>uf  :<C-u>Unite file_rec<CR>
 nnoremap <silent> <Leader>uo  :<C-u>Unite outline<CR>
-nnoremap <silent> <Leader>ul  :<C-u>Unite line<CR>
+nnoremap / :<C-u>Unite line<CR>
 nnoremap <silent> <Leader>uu  :<C-u>Unite buffer_tab file_mru bookmark file_rec<CR>
 autocmd FileType unite call s:unite_my_settings()
 function! s:unite_my_settings()
