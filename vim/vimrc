@@ -64,7 +64,8 @@ set noswapfile
 set hidden
 filetype plugin indent on
 
-colorscheme base16-mocha
+colorscheme base16-default
+set background=dark
 set t_Co=256
 
 
