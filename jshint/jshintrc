@@ -1,14 +1,68 @@
 {
-	"passfail": false,
-	"browser": true,
-	"node": true,
-	"es5": true,
-	"dojo": true,
-	"jquery": true,
-	"devel": true,
-	"debug": true,
-	"evil": true,
-	"smarttabs": true,
-	"undef": true,
-	"unused": true
+  // 制限項目
+  "bitwise"       : false, // ビット演算を禁止
+  "camelcase"     : false, // camelCalse か UPPER_CASE の使用を強制
+  "curly"         : true,  // 一行 if とかでの中括弧省略を禁止
+  "eqeqeq"        : true,  // == の使用を禁止
+  "es3"           : false, // ES3 仕様に準拠する必要があるか
+  "forin"         : true,  // for in が obj.hasOwnProperty(key) を求めるか
+  "immed"         : true,  // 括弧で囲まれていない関数の即時実行を禁止
+  "indent"        : 2,     // タブ幅の指定
+  "latedef"       : true,  // 変数を定義する前に使用するのを禁止
+  "newcap"        : true,  // コンストラクタ関数の一文字目を大文字にすることを強制
+  "noarg"         : false, // arguments.caller, arguments.callee の使用を禁止
+  "noempty"       : true,  // 空のブロックがある場合に警告
+  "nonew"         : true,  // 戻り値を受け取らないコンストラクタ関数の実行を禁止
+  "plusplus"      : false, // インクリメント, デクリメントの使用を禁止
+  "quotmark"      : true,  // 引用符の統一を強制
+  "undef"         : true,  // 宣言されていない変数の使用を禁止
+  "unused"        : false, // 変数が利用されていない場合に警告
+  "strict"        : false,  // 関数スコープでの strict mode を強制
+  "trailing"      : true,  // 行末の空白を禁止
+  "maxparams"     : 0,     // 関数の引数の数を制限
+  "maxdepth"      : 0,     // ブロックのネストの深さを制限
+  "maxstatements" : 0,     // 関数内の文の数を制限
+  "maxcomplexity" : false, // 循環的複雑度の制御
+  "maxlen"        : 0,     // 一行の文字数を制限
+
+  // 緩和項目
+  "asi"          : false, // セミコロンが無い場合の警告を出さない
+  "boss"         : false, // 比較を行う場面での代入に警告を出さない
+  "debug"        : true,  // debugger ステートメントに警告を出さない
+  "eqnull"       : true,  // == null に対する警告を出さない
+  "es5"          : true,  // ES5 の使用を伝える
+  "esnext"       : true,  // ES.next の使用を伝える
+  "evil"         : false, // eval に警告を出さない
+  "expr"         : true,  // 関数実行や代入が期待される場面での式表現に警告を出さない
+  "funcscope"    : false, // 制御構造内での変数宣言に警告を出さない
+  "globalstrict" : false, // global strict mode の使用に警告を出さない
+  "iterator"     : false, // iterator プロパティに警告を出さない
+  "lastsemic"    : false, // 行末のセミコロンが省略されたときに警告を出さない
+  "laxbreak"     : false, // 安全でない可能性のある改行に警告を出さない
+  "laxcomma"     : true,  // 行頭カンマに警告を出さない
+  "loopfunc"     : false, // ループ内の関数定義に警告を出さない
+  "moz"          : false, // Mozilla JavaScript 拡張に関する警告を出さない
+  "multistr"     : true,  // 複数行に渡る文字列に警告を出さない
+  "proto"        : true,  // __proto__ プロパティに警告を出さない
+  "scripturl"    : true,  // javascript URI Scheme に警告えを出さない
+  "smarttabs"    : false, // タブとスペースの混在に警告を出さない
+  "shadow"       : true,  // 変数の再定義に関する警告を出さない
+  "sub"          : false, // プロパティ参照の [] 表記に警告を出さない
+  "supernew"     : false, // new function () {...} や new Object といったコンストラクタに警告を出さない
+  "validthis"    : false, // コンストラクタ関数以外での this の呼び出しを許可する
+
+  // 環境設定
+  "browser"     : true,
+  "couch"       : false,
+  "devel"       : true,
+  "dojo"        : false,
+  "jquery"      : true,
+  "mootools"    : false,
+  "node"        : true,
+  "nonstandard" : true,
+  "phantom"     : true,
+  "rhino"       : false,
+  "worker"      : true,
+  "wsh"         : false,
+  "yui"         : false
 }
