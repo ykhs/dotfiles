@@ -95,6 +95,12 @@ set wildmenu
 " make したら :copen
 autocmd QuickfixCmdPost make copen
 
+" insertモードを抜けるとIMEオフ
+set noimdisable
+set iminsert=0 imsearch=0
+set noimcmdline
+inoremap :set iminsert=0
+
 " Indent
 " -----------------------------------------------------------------------------
 set tabstop=4
