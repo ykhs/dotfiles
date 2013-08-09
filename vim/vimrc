@@ -38,8 +38,7 @@ NeoBundle 'mattn/zencoding-vim'
 NeoBundle 'othree/html5.vim'
 
 " JavaScript
-NeoBundle 'jiangmiao/simple-javascript-indenter'
-NeoBundle 'jelera/vim-javascript-syntax'
+NeoBundle 'pangloss/vim-javascript.git'
 NeoBundle 'jQuery'
 
 " Ruby
@@ -293,6 +292,7 @@ let g:syntastic_mode_map = { 'mode': 'active',
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_javascript_checker = 'jshint'
 let g:syntastic_javascript_jshint_conf = '~/.jshintrc'
+let g:syntastic_coffee_coffeelint_args = "--csv --file ~/coffeelintrc"
 
 " 外部設定ファイル
 " ==============================================================================

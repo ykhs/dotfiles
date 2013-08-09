@@ -60,3 +60,7 @@ ln -fsv ${dotfiles_dir}/zsh/zshrc.antigen $HOME/.zsh/zshrc.antigen
 # ------------------------------------------------------------------------------
 ln -fsv ${dotfiles_dir}/jshint/jshintrc $HOME/.jshintrc
 
+# coffeelint
+# ------------------------------------------------------------------------------
+ln -fsv ${dotfiles_dir}/coffeelint/coffeelintrc $HOME/.coffeelintrc
+
