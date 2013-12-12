@@ -1,8 +1,14 @@
 if [ -f $HOME/.zsh/antigen/antigen.zsh ]; then
 	source $HOME/.zsh/antigen/antigen.zsh
 
+	export ZSH_TMUX_AUTOSTART=false
+	export ZSH_TMUX_AUTOCONNECT=true
+	export ZSH_TMUX_FIXTERM=true
+
+	antigen-lib
+
 	antigen-bundle git
-	antigen-bundle gitfast
+	antigen-bundle tmux
 
 	antigen-theme blinks
 fi
