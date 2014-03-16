@@ -69,7 +69,6 @@ filetype plugin indent on
 " ==============================================================================
 let g:hybrid_use_iTerm_colors = 1 " for hybrid colorscheme
 colorscheme hybrid
-set background=dark
 set t_Co=256
 
 
@@ -110,7 +109,7 @@ set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 set autoindent
-set cindent
+set smartindent
 
 
 " View
@@ -214,6 +213,9 @@ let g:neocomplcache_max_list = 20
 let g:neocomplcache_auto_completion_start_length = 3
 let g:neocomplcache_enable_smart_case = 1
 let g:neocomplcache_force_overwrite_completefunc = 1
+let g:neocomplcache_enable_camel_case_completion = 0
+let g:neocomplcache_enable_underbar_completion = 1
+let g:neocomplcache_min_syntax_length = 3
 imap <C-b> <Plug>(neocomplcache_snippets_expand)
 smap <C-b> <Plug>(neocomplcache_snippets_expand)
 inoremap <expr><C-y> neocomplcache#close_popup()
@@ -231,7 +233,7 @@ command! -nargs=* Nes NeoComplCacheEditSnippets
 
 " neosnippet
 " ------------------------------------------------------------------------------
-let g:neosnippet#snippets_directory='~/.vim/snippets'
+let g:neosnippet#snippets_directory= expand('~/.vim/snippets')
 imap <C-k> <Plug>(neosnippet_expand_or_jump)
 smap <C-k> <Plug>(neosnippet_expand_or_jump)
 let g:neosnippet#disable_runtime_snippets = {
@@ -265,7 +267,8 @@ let g:Align_xstrlen=3
 " VimFiler
 " ------------------------------------------------------------------------------
 let g:vimfiler_as_default_explorer = 1
-nnoremap <Leader>vc :<C-u>VimFilerBufferDir -quit<CR>
+nnoremap <Leader>vc :<C-u>VimFilerBufferDir<CR>
+nnoremap <Leader>vi :<C-u>VimFilerBufferDir -split -simple -winwidth=35 -no-quit<CR>
 "セーフモードを無効にした状態で起動する
 let g:vimfiler_safe_mode_by_default = 0
 
@@ -276,7 +279,8 @@ let g:indent_guides_guide_size = 1
 
 " memolist
 " ------------------------------------------------------------------------------
-let g:memolist_path = '~/Dropbox/memolist.vim'
+let g:memolist_path = expand('~/Dropbox/memolist.vim')
+let g:memolist_memo_suffix = 'md'
 let g:memolist_qfixgrep = 1
 nnoremap <Leader>mf :exe "CtrlP" g:memolist_path<CR>
 nnoremap <Leader>mc :MemoNew<CR>
