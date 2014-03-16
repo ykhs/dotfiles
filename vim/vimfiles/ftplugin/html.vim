@@ -1,3 +1,8 @@
+setl tabstop=2
+setl shiftwidth=2
+setl softtabstop=2
+setl expandtab
+
 " ---------------------------------------------------------------------------
 " surrond.vim
 " @see http://webtech-walker.com/archive/2009/02/08031540.html
