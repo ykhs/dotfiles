@@ -17,7 +17,7 @@
   "quotmark"      : true,  // 引用符の統一を強制
   "undef"         : true,  // 宣言されていない変数の使用を禁止
   "unused"        : false, // 変数が利用されていない場合に警告
-  "strict"        : false,  // 関数スコープでの strict mode を強制
+  "strict"        : false, // 関数スコープでの strict mode を強制
   "trailing"      : true,  // 行末の空白を禁止
   "maxparams"     : 0,     // 関数の引数の数を制限
   "maxdepth"      : 0,     // ブロックのネストの深さを制限
@@ -30,7 +30,7 @@
   "boss"         : false, // 比較を行う場面での代入に警告を出さない
   "debug"        : true,  // debugger ステートメントに警告を出さない
   "eqnull"       : true,  // == null に対する警告を出さない
-  "es5"          : true,  // ES5 の使用を伝える
+//  "es5"          : true,  // ES5 の使用を伝える
   "esnext"       : true,  // ES.next の使用を伝える
   "evil"         : false, // eval に警告を出さない
   "expr"         : true,  // 関数実行や代入が期待される場面での式表現に警告を出さない
