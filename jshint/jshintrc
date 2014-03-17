@@ -64,5 +64,10 @@
   "rhino"       : false,
   "worker"      : true,
   "wsh"         : false,
-  "yui"         : false
+  "yui"         : false,
+
+  // Namespace is not defined の抑制
+  "globals": {
+    "Backbone": true
+  }
 }
