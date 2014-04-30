@@ -68,6 +68,15 @@
 
   // Namespace is not defined の抑制
   "globals": {
-    "Backbone": true
+    "_": true,
+    "Backbone": true,
+    "Marionette": true,
+    "describe": truoe
+    "it": true,
+    "before": true,
+    "beforeEach": true,
+    "after": true,
+    "afterEach": true,
+    "Asserter": true
   }
 }
