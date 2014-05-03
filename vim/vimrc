@@ -68,6 +68,7 @@ set shortmess+=I
 set nowritebackup
 set nobackup
 set noswapfile
+set undodir=~/.vim/undo
 set hidden
 filetype plugin indent on
 
