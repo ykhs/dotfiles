@@ -39,7 +39,7 @@ NeoBundle "osyo-manga/unite-quickfix"
 NeoBundle 'Lokaltog/vim-easymotion'
 
 " HTML
-NeoBundle 'mattn/zencoding-vim'
+NeoBundle 'mattn/emmet-vim'
 NeoBundle 'othree/html5.vim'
 
 " JavaScript
