@@ -13,6 +13,6 @@ if [ -f $HOME/.zsh/antigen/antigen.zsh ]; then
 		antigen-bundle tmux
 	fi
 
-	antigen-theme blinks
+	antigen-theme robbyrussell
 fi
 
