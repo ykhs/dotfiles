@@ -35,8 +35,10 @@ NeoBundle 'glidenote/memolist.vim'
 NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'nathanaelkane/vim-indent-guides.git'
 NeoBundle 'thinca/vim-quickrun'
-NeoBundle "osyo-manga/unite-quickfix"
+NeoBundle 'osyo-manga/unite-quickfix'
 NeoBundle 'Lokaltog/vim-easymotion'
+NeoBundle 'thinca/vim-fontzoom'
+NeoBundle 'fuenor/vim-wordcount'
 
 " HTML
 NeoBundle 'mattn/emmet-vim'
@@ -59,9 +61,9 @@ NeoBundle 'tpope/vim-markdown'
 NeoBundle 'w0ng/vim-hybrid'
 
 " Syntax Check
-NeoBundle "osyo-manga/shabadou.vim"
+NeoBundle 'osyo-manga/shabadou.vim'
 NeoBundle 'osyo-manga/vim-watchdogs'
-NeoBundle "jceb/vim-hier"
+NeoBundle 'jceb/vim-hier'
 
 scriptencoding utf-8
 set shortmess+=I
@@ -374,6 +376,11 @@ let g:EasyMotion_smartcase = 1
 nmap e <Plug>(easymotion-s2)
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
+
+" WordCount
+" ------------------------------------------------------------------------------
+set statusline+=[wc:%{WordCount()}]
+set updatetime=500
 
 " 外部設定ファイル
 " ==============================================================================
