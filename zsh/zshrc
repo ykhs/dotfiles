@@ -78,10 +78,6 @@ if [ -f $ZSH/zshrc.local ]; then
 	source $ZSH/zshrc.local
 fi
 
-if [ -f $ZSH/zshrc.antigen ]; then
-	source $ZSH/zshrc.antigen
-fi
-
 if [ -f /opt/boxen/env.sh ]; then
 	source /opt/boxen/env.sh
 fi

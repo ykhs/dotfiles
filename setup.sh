@@ -50,11 +50,7 @@ fi
 touch $HOME/.zsh/zshenv.local
 touch $HOME/.zsh/zshrc.local
 
-if [ -L $HOME/.zsh/antigen ]; then
-	rm $HOME/.zsh/antigen
 fi
-ln -nsv ${dotfiles_dir}/zsh/antigen.git $HOME/.zsh/antigen
-ln -fsv ${dotfiles_dir}/zsh/zshrc.antigen $HOME/.zsh/zshrc.antigen
 
 # jshint
 # ------------------------------------------------------------------------------
