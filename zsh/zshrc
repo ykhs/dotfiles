@@ -4,6 +4,31 @@ export EDITOR=vim
 
 bindkey -e
 
+# Prompt
+# ==============================================================================
+autoload -U vcs_info
+zstyle ':vcs_info:*' enable git
+zstyle ':vcs_info:*' max-exports 1
+zstyle ':vcs_info:git:*' check-for-changes true
+zstyle ':vcs_info:*' stagedstr '%F{red}[+]%f'
+zstyle ':vcs_info:*' unstagedstr '%F{red}[!]%f'
+zstyle ':vcs_info:git:*' formats '%c%u%F{blue}%b%f%F{black}@%r%f'
+zstyle ':vcs_info:git:*' actionformats '%b@%r%c%u|%a'
+
+function vcs_echo {
+	LANG=C vcs_info
+	if [[ -z "$vcs_info_msg_0_" ]]; then return; fi
+	echo "%{$vcs_info_msg_0_%}"
+}
+
+unsetopt promptcr
+setopt prompt_subst
+setopt always_last_prompt
+
+PROMPT='
+%F{yellow}[%~]%f $(vcs_echo)
+$ '
+
 # History
 # ==============================================================================
 HISTFILE=$ZSH/history
@@ -43,8 +68,6 @@ zstyle ":completion:*" recent-dirs-insert always
 
 # setopt
 # ==============================================================================
-unsetopt promptcr
-setopt prompt_subst
 setopt nobeep
 setopt long_list_jobs
 setopt list_types
