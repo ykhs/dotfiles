@@ -51,6 +51,7 @@ bindkey "^N" history-beginning-search-forward-end
 
 # Complement
 # ==============================================================================
+fpath=($ZSH/completion $fpath)
 autoload -U compinit
 compinit -u
 compinit -d $ZSH/compdump
@@ -122,11 +123,24 @@ function peco-cdr () {
 zle -N peco-cdr
 bindkey '^@' peco-cdr
 
+function peco-src () {
+    local selected_dir=$(ghq list --full-path | peco --query "$LBUFFER")
+    if [ -n "$selected_dir" ]; then
+        BUFFER="cd ${selected_dir}"
+        zle accept-line
+    fi
+    zle clear-screen
+}
+zle -N peco-src
+bindkey '^]' peco-src
+
 # alias
 # ==============================================================================
 alias ls='ls -al'
 
 alias o='git ls-files | peco | xargs open'
+alias gh='gh-open $(ghq list -p | peco)'
+alias v='git ls-files | peco | xargs mvim'
 
 alias gst='git status'
 alias gco='git checkout'

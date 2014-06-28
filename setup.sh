@@ -50,6 +50,11 @@ fi
 touch $HOME/.zsh/zshenv.local
 touch $HOME/.zsh/zshrc.local
 
+if [ -L $HOME/.zsh/completion ]; then
+	rm $HOME/.zsh/completion
+fi
+ln -nsv ${dotfiles_dir}/zsh/completion $HOME/.zsh/completion
+
 # peco
 # ------------------------------------------------------------------------------
 if [ ! -d $HOME/.peco ]; then
