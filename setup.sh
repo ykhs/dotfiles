@@ -50,7 +50,12 @@ fi
 touch $HOME/.zsh/zshenv.local
 touch $HOME/.zsh/zshrc.local
 
+# peco
+# ------------------------------------------------------------------------------
+if [ ! -d $HOME/.peco ]; then
+	mkdir $HOME/.peco
 fi
+ln -fsv ${dotfiles_dir}/peco/config.json $HOME/.peco/config.json
 
 # jshint
 # ------------------------------------------------------------------------------
