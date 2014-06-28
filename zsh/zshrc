@@ -136,6 +136,14 @@ bindkey '^]' peco-src
 
 # alias
 # ==============================================================================
+function show-current-dir-as-window-name {
+    tmux rename-window "${PWD:t}" > /dev/null
+}
+show-current-dir-as-window-name
+chpwd_functions+=show-current-dir-as-window-name
+
+# alias
+# ==============================================================================
 alias ls='ls -al'
 
 alias o='git ls-files | peco | xargs open'
