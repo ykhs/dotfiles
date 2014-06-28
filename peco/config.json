@@ -1,5 +1,10 @@
 {
   "Keymap": {
-    "C-c": "peco.Cancel"
+    "C-[": "peco.Cancel"
+  },
+  "Style": {
+    "Basic": ["on_default", "default"],
+    "Selected": ["on_white", "black"],
+    "Query": ["magenta", "bold"]
   }
 }
