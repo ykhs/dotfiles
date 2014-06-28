@@ -60,6 +60,7 @@ zstyle ':completion:*:cd:*' ignore-parents parent pwd
 
 # recent dirs
 # ==============================================================================
+typeset -ga chpwd_functions
 autoload -U chpwd_recent_dirs cdr
 chpwd_functions+=chpwd_recent_dirs
 zstyle ":chpwd:*" recent-dirs-max 500
@@ -120,6 +121,17 @@ function peco-cdr () {
 }
 zle -N peco-cdr
 bindkey '^@' peco-cdr
+
+# alias
+# ==============================================================================
+alias ls='ls -al'
+
+alias o='git ls-files | peco | xargs open'
+
+alias gst='git status'
+alias gco='git checkout'
+alias ga='git add'
+alias gc='git commit'
 
 if [ -f $ZSH/zshrc.mine ]; then
 	source $ZSH/zshrc.mine
