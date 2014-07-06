@@ -134,6 +134,15 @@ function peco-src () {
 zle -N peco-src
 bindkey '^]' peco-src
 
+function peco-pkill() {
+  for pid in `ps aux | peco | awk '{ print $2 }'`
+  do
+    kill $pid
+    echo "Killed ${pid}"
+  done
+}
+alias pk="peco-pkill"
+
 # alias
 # ==============================================================================
 function show-current-dir-as-window-name {
@@ -149,6 +158,7 @@ alias ls='ls -al'
 alias o='git ls-files | peco | xargs open'
 alias gh='gh-open $(ghq list -p | peco)'
 alias v='git ls-files | peco | xargs mvim'
+alias -g B='`git branch | peco | sed -e "s/^\*[ ]*//g"`'
 
 alias gst='git status'
 alias gco='git checkout'
