@@ -177,6 +177,6 @@ if [ -f /opt/boxen/env.sh ]; then
 	source /opt/boxen/env.sh
 fi
 
-if which brew &> /dev/null; then
-	source $(brew --prefix)/etc/profile.d/z.sh
+if [ -f $ZSH/tmuxinator.zsh ]; then
+	source $ZSH/tmuxinator.zsh
 fi

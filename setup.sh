@@ -55,6 +55,10 @@ if [ -L $HOME/.zsh/completion ]; then
 fi
 ln -nsv ${dotfiles_dir}/zsh/completion $HOME/.zsh/completion
 
+if [ -f ${dotfiles_dir}/zsh/tmuxinator.zsh ]; then
+	ln -fsv ${dotfiles_dir}/zsh/tmuxinator.zsh $HOME/.zsh/tmuxinator.zsh
+fi
+
 # peco
 # ------------------------------------------------------------------------------
 if [ ! -d $HOME/.peco ]; then
