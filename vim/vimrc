@@ -39,6 +39,7 @@ NeoBundle 'osyo-manga/unite-quickfix'
 NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'thinca/vim-fontzoom'
 NeoBundle 'fuenor/vim-wordcount'
+NeoBundle 'rhysd/clever-f.vim'
 
 " HTML
 NeoBundle 'mattn/emmet-vim'
