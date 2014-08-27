@@ -59,6 +59,10 @@ if [ -f ${dotfiles_dir}/zsh/tmuxinator.zsh ]; then
 	ln -fsv ${dotfiles_dir}/zsh/tmuxinator.zsh $HOME/.zsh/tmuxinator.zsh
 fi
 
+# tig
+# ------------------------------------------------------------------------------
+ln -fsv ${dotfiles_dir}/tig/tigrc $HOME/.tigrc
+
 # peco
 # ------------------------------------------------------------------------------
 if [ ! -d $HOME/.peco ]; then
