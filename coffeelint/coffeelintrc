@@ -101,7 +101,7 @@
   },
   "no_unnecessary_fat_arrows": {
     "name": "no_unnecessary_fat_arrows",
-    "level": "warn"
+    "level": "ignore"
   },
   "missing_fat_arrows": {
     "name": "missing_fat_arrows",
