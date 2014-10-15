@@ -1,26 +1,29 @@
-snippet fn
-    function ${1:function_name}(${2:arguments}) {
-        ${3:// do something...}
+snippet use strict
+    'use strict';
+
+snippet function
+    function (${1:arguments}) {
+        ${2:// do something...}
     }
 
-snippet f
-    function(${1:arguments}) {
-        ${2:// do something...}
-    };
+snippet (function() {})()
+    (function() {
+        ${1:// do something...}
+    })();
 
 snippet if
     if (${1:true}) {
         ${2:// do something...}
     }
 
-snippet ife
+snippet ifelse
     if (${1:true}) {
         ${2:// do something...}
     } else {
         ${3:// do something...}
     }
 
-snippet ifif
+snippet ifelseif
     if (${1:true}) {
         ${2:// do something...}
     } else if (${3:true}) {
@@ -56,11 +59,8 @@ snippet proto
 snippet self
     var self = this;
 
-snippet con
+snippet log
     console.log(${1});
-
-snippet conm
-    console.log(arguments.callee.name, ${1});
 
 snippet trace
     console.trace();
