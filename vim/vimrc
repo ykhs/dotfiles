@@ -43,6 +43,7 @@ NeoBundle 'rhysd/clever-f.vim'
 " HTML
 NeoBundle 'mattn/emmet-vim'
 NeoBundle 'othree/html5.vim'
+NeoBundle 'nono/vim-handlebars'
 
 " JavaScript
 NeoBundle 'pangloss/vim-javascript.git'
