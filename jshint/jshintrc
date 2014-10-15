@@ -71,7 +71,7 @@
     "_": true,
     "Backbone": true,
     "Marionette": true,
-    "describe": truoe
+    "describe": true,
     "it": true,
     "before": true,
     "beforeEach": true,
