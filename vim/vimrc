@@ -25,7 +25,6 @@ NeoBundle 'Shougo/vimproc', {
 			\}
 NeoBundle 'tsaleh/vim-align'
 NeoBundle 'tpope/vim-surround'
-NeoBundle 'othree/eregex.vim'
 NeoBundle 'rgarver/Kwbd.vim'
 NeoBundle 'vim-scripts/The-NERD-Commenter'
 NeoBundle 'vim-scripts/sudo.vim'
