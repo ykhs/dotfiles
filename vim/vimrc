@@ -243,11 +243,6 @@ let g:neosnippet#disable_runtime_snippets = {
 " ------------------------------------------------------------------------------
 nnoremap <C-q><C-q> :Kwbd<CR>
 
-" zencoding-vim
-" ------------------------------------------------------------------------------
-let g:use_zen_complete_tag = 1
-setlocal omnifunc=zencoding#CompleteTag
-
 " Align
 " ------------------------------------------------------------------------------
 let g:Align_xstrlen=3
@@ -345,19 +340,6 @@ nnoremap <silent> <Leader><C-r> :QuickRun<CR>
 " 書き込み後にシンタックスチェックを行う
 let g:watchdogs_check_BufWritePost_enable = 1
 call watchdogs#setup(g:quickrun_config)
-
-" EasyMotion
-" ------------------------------------------------------------------------------
-" デフォルトのキーバインドを解除
-let g:EasyMotion_do_mapping = 0
-
-let g:EasyMotion_keys = ';HKLYUIOPNM,QWERTASDGZXCVBJF'
-let g:EasyMotion_use_upper = 1
-
-let g:EasyMotion_smartcase = 1
-nmap e <Plug>(easymotion-s2)
-map <Leader>j <Plug>(easymotion-j)
-map <Leader>k <Plug>(easymotion-k)
 
 " WordCount
 " ------------------------------------------------------------------------------
