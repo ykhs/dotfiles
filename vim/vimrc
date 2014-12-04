@@ -15,6 +15,7 @@ NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'Shougo/neosnippet'
+NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'Shougo/unite-outline'
 NeoBundle 'Shougo/vimshell'
 NeoBundle 'Shougo/vimproc', {
@@ -233,9 +234,6 @@ let g:neocomplete#enable_at_startup = 1
 let g:neosnippet#snippets_directory= expand('~/.vim/snippets')
 imap <C-k> <Plug>(neosnippet_expand_or_jump)
 smap <C-k> <Plug>(neosnippet_expand_or_jump)
-let g:neosnippet#disable_runtime_snippets = {
-			\   '_' : 1,
-			\ }
 
 " kwbd
 " ------------------------------------------------------------------------------
