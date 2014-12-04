@@ -38,6 +38,7 @@ NeoBundle 'osyo-manga/unite-quickfix'
 NeoBundle 'thinca/vim-fontzoom'
 NeoBundle 'fuenor/vim-wordcount'
 NeoBundle 'rhysd/clever-f.vim'
+NeoBundle 'kana/vim-smartinput'
 NeoBundle 'justinmk/vim-sneak'
 
 " HTML
