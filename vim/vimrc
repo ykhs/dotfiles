@@ -40,6 +40,7 @@ NeoBundle 'fuenor/vim-wordcount'
 NeoBundle 'rhysd/clever-f.vim'
 NeoBundle 'kana/vim-smartinput'
 NeoBundle 'justinmk/vim-sneak'
+NeoBundle 'osyo-manga/vim-over'
 
 " HTML
 NeoBundle 'mattn/emmet-vim'
@@ -169,8 +170,6 @@ if &t_Co > 2 || has("gui")
 	syntax on
 	set hlsearch
 endif
-
-nnoremap S :<C-u>%s//g<Left><Left>
 
 au BufEnter * silent! lcd %:p:h
 
@@ -340,6 +339,10 @@ nnoremap <silent> <Leader><C-r> :QuickRun<CR>
 " 書き込み後にシンタックスチェックを行う
 let g:watchdogs_check_BufWritePost_enable = 1
 call watchdogs#setup(g:quickrun_config)
+
+" over.vim
+" ------------------------------------------------------------------------------
+nnoremap <silent> <Leader>o <C-u>:OverCommandLine<CR>%s/
 
 " WordCount
 " ------------------------------------------------------------------------------
