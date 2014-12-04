@@ -169,6 +169,8 @@ if &t_Co > 2 || has("gui")
 	set hlsearch
 endif
 
+nnoremap S :<C-u>%s//g<Left><Left>
+
 au BufEnter * silent! lcd %:p:h
 
 
@@ -239,17 +241,6 @@ let g:neosnippet#disable_runtime_snippets = {
 " kwbd
 " ------------------------------------------------------------------------------
 nnoremap <C-q><C-q> :Kwbd<CR>
-
-" eregex
-" ------------------------------------------------------------------------------
-let g:eregex_meta_chars = '^$()|[]{}.*+?\/'
-let g:vregex_meta_chars = '^$|[].*\/'
-""" line
-nnoremap s :<C-u>S//g<Left><Left>
-""" buffer
-nnoremap S :<C-u>%S//g<Left><Left>
-""" buffers
-nnoremap <Leader>S :<C-u>bufdo %S//g<Left><Left>
 
 " zencoding-vim
 " ------------------------------------------------------------------------------
