@@ -48,6 +48,7 @@ NeoBundle 'nono/vim-handlebars'
 " JavaScript
 NeoBundle 'pangloss/vim-javascript.git'
 NeoBundle 'jQuery'
+NeoBundle 'digitaltoad/vim-jade'
 
 " Ruby
 NeoBundle 'ruby.vim'
