@@ -344,6 +344,13 @@ call watchdogs#setup(g:quickrun_config)
 " ------------------------------------------------------------------------------
 nnoremap <silent> <Leader>o <C-u>:OverCommandLine<CR>%s/
 
+" sneak.vim
+" ------------------------------------------------------------------------------
+nmap <enter> <Plug>SneakNext
+xmap <enter> <Plug>SneakNext
+nmap <bs>    <Plug>SneakPrevious
+xmap <bs>    <Plug>SneakPrevious
+
 " WordCount
 " ------------------------------------------------------------------------------
 set statusline+=[wc:%{WordCount()}]
