@@ -13,7 +13,7 @@ call neobundle#rc(expand('~/.vim/bundle/'))
 NeoBundle 'Shougo/vimfiler'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neomru.vim'
-NeoBundle 'Shougo/neocomplcache'
+NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/unite-outline'
 NeoBundle 'Shougo/vimshell'
@@ -217,30 +217,9 @@ function! s:unite_my_settings()
 	imap <buffer> <C-o> <Plug>(unite_insert_leave):<C-u>call unite#mappings#do_action('above')<CR>
 endfunction
 
-" neocomplcache
+" neocomplete
 " ------------------------------------------------------------------------------
-let g:neocomplcache_enable_at_startup = 1
-let g:neocomplcache_max_list = 20
-let g:neocomplcache_auto_completion_start_length = 3
-let g:neocomplcache_enable_smart_case = 1
-let g:neocomplcache_force_overwrite_completefunc = 1
-let g:neocomplcache_enable_camel_case_completion = 0
-let g:neocomplcache_enable_underbar_completion = 1
-let g:neocomplcache_min_syntax_length = 3
-imap <C-b> <Plug>(neocomplcache_snippets_expand)
-smap <C-b> <Plug>(neocomplcache_snippets_expand)
-inoremap <expr><C-y> neocomplcache#close_popup()
-inoremap <expr><C-e> neocomplcache#cancel_popup()
-imap <C-l> <Plug>(neocomplcache_start_unite_complete)
-inoremap <expr><C-g> neocomplcache#undo_completion()
-inoremap <expr><C-l> neocomplcache#complete_common_string()
-inoremap <expr><CR> pumvisible() ? neocomplcache#close_popup() : "\<CR>"
-inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
-inoremap <expr><C-h> neocomplcache#smart_close_popup() . "\<C-h>"
-inoremap <expr><BS> neocomplcache#smart_close_popup() . "\<C-h>"
-inoremap <expr><C-y> neocomplcache#close_popup()
-inoremap <expr><C-e> neocomplcache#cancel_popup()
-command! -nargs=* Nes NeoComplCacheEditSnippets
+let g:neocomplete#enable_at_startup = 1
 
 " neosnippet
 " ------------------------------------------------------------------------------
