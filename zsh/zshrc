@@ -180,3 +180,6 @@ fi
 if [ -f $ZSH/tmuxinator.zsh ]; then
 	source $ZSH/tmuxinator.zsh
 fi
+
+# added by travis gem
+[ -f $HOME/.travis/travis.sh ] && source $HOME/.travis/travis.sh
