@@ -1,0 +1,20 @@
+{
+  "env": {
+    "browser": true,
+    "node": true,
+    "mocha": true,
+    "jquery": true
+  },
+  "rules": {
+    "no-comma-dangle": 0,
+    "no-console": 1,
+    "no-debugger": 1,
+    "no-empty": 1,
+    "no-empty-class": 1,
+    "no-extra-boolean-cast": 1,
+    "no-extra-parens": 0,
+    "no-func-assign": 0,
+    "quotes": [2, "single"],
+    "strict": 0
+  }
+}
