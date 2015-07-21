@@ -10,13 +10,11 @@ endif
 
 call neobundle#rc(expand('~/.vim/bundle/'))
 
-NeoBundle 'Shougo/vimfiler'
 NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/neomru.vim'
+NeoBundle 'Shougo/vimfiler'
 NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet-snippets'
-NeoBundle 'Shougo/unite-outline'
 NeoBundle 'Shougo/vimshell'
 NeoBundle 'Shougo/vimproc', {
 			\	'build' : {
@@ -25,7 +23,6 @@ NeoBundle 'Shougo/vimproc', {
 			\	},
 			\}
 NeoBundle 'tsaleh/vim-align'
-NeoBundle 'tpope/vim-surround'
 NeoBundle 'rgarver/Kwbd.vim'
 NeoBundle 'vim-scripts/The-NERD-Commenter'
 NeoBundle 'vim-scripts/sudo.vim'
@@ -34,23 +31,26 @@ NeoBundle 'glidenote/memolist.vim'
 NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'nathanaelkane/vim-indent-guides.git'
 NeoBundle 'thinca/vim-quickrun'
-NeoBundle 'osyo-manga/unite-quickfix'
 NeoBundle 'thinca/vim-fontzoom'
 NeoBundle 'fuenor/vim-wordcount'
 NeoBundle 'rhysd/clever-f.vim'
-NeoBundle 'kana/vim-smartinput'
 NeoBundle 'justinmk/vim-sneak'
 NeoBundle 'osyo-manga/vim-over'
 
 " HTML
-NeoBundle 'mattn/emmet-vim'
 NeoBundle 'othree/html5.vim'
 NeoBundle 'nono/vim-handlebars'
 
+" CSS
+NeoBundle 'wavded/vim-stylus'
+
 " JavaScript
 NeoBundle 'pangloss/vim-javascript.git'
+NeoBundle 'jelera/vim-javascript-syntax'
 NeoBundle 'jQuery'
 NeoBundle 'digitaltoad/vim-jade'
+NeoBundle 'elzr/vim-json'
+NeoBundle 'moll/vim-node'
 
 " Ruby
 NeoBundle 'ruby.vim'
@@ -68,11 +68,6 @@ NeoBundle 'dag/vim2hs'
 
 " ColorScheme
 NeoBundle 'w0ng/vim-hybrid'
-
-" Syntax Check
-NeoBundle 'osyo-manga/shabadou.vim'
-NeoBundle 'osyo-manga/vim-watchdogs'
-NeoBundle 'jceb/vim-hier'
 
 scriptencoding utf-8
 set shortmess+=I
@@ -144,6 +139,7 @@ set shellslash
 set list
 set listchars=tab:^\ ,trail:~
 set showmatch
+set synmaxcol=200
 
 " 対応する括弧の強調
 set matchtime=1
@@ -174,7 +170,7 @@ endif
 au BufEnter * silent! lcd %:p:h
 
 
-" Keymap
+" Common Keymap
 " ==============================================================================
 inoremap <C-j> <Esc>
 vnoremap <C-j> <Esc>
@@ -190,33 +186,12 @@ nnoremap k gk
 
 nnoremap <silent> <ESC><ESC> :nohl<CR>
 
-nnoremap <silent> <Leader>tc :<C-u>tabnew<CR>:tabmove<CR>
-nnoremap <silent> <Leader>tk :<C-u>tabclose<CR>
-nnoremap <silent> <Leader>tn :<C-u>tabnext<CR>
-nnoremap <silent> <Leader>tp :<C-u>tabprevious<CR>
-nnoremap <silent> <C-t><C-n> :<C-u>tabnext<CR>
-nnoremap <silent> <C-t><C-p> :<C-u>tabprevious<CR>
-
 
 " Plugin
 " ==============================================================================
 
 " unite.vim
 " ------------------------------------------------------------------------------
-let g:unite_source_file_mru_time_format = ''
-let g:unite_enable_start_insert = 1
-let g:unite_source_file_mru_ignore_pattern='.*\/$\|.*Application\ Data.*'
-"file_mruの表示フォーマットを指定。空にすると表示スピードが高速化される
-let g:unite_source_file_mru_filename_format = ''
-nnoremap <silent> <Leader>ur  :<C-u>Unite file_mru<CR>
-nnoremap <silent> <Leader>ub  :<C-u>Unite buffer_tab<CR>
-nnoremap <silent> <Leader>uf  :<C-u>Unite file_rec<CR>
-nnoremap <silent> <Leader>uo  :<C-u>Unite outline<CR>
-nnoremap <silent> <Leader>ul  :<C-u>Unite line<CR>
-nnoremap <silent> <Leader>uu  :<C-u>Unite buffer_tab file_mru bookmark file_rec<CR>
-nnoremap <silent> <Leader>uc  :<C-u>Unite bookmark<CR>
-nnoremap <silent> <Leader>uq  :<C-u>Unite quickfix<CR>
-autocmd FileType unite call s:unite_my_settings()
 function! s:unite_my_settings()
 	imap <buffer> jj <Plug>(unite_insert_leave)
 	nmap <buffer> <Esc> <Plug>(unite_exit)
@@ -228,6 +203,27 @@ endfunction
 " neocomplete
 " ------------------------------------------------------------------------------
 let g:neocomplete#enable_at_startup = 1
+" Recommended key-mappings.
+" <CR>: close popup and save indent.
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+function! s:my_cr_function()
+  return neocomplete#close_popup() . "\<CR>"
+  " For no inserting <CR> key.
+  "return pumvisible() ? neocomplete#close_popup() : "\<CR>"
+endfunction
+" <TAB>: completion.
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" <C-h>, <BS>: close popup and delete backword char.
+inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
+inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+inoremap <expr><C-y>  neocomplete#close_popup()
+inoremap <expr><C-e>  neocomplete#cancel_popup()
+" Enable omni completion.
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
 " neosnippet
 " ------------------------------------------------------------------------------
@@ -246,8 +242,7 @@ let g:Align_xstrlen=3
 " VimFiler
 " ------------------------------------------------------------------------------
 let g:vimfiler_as_default_explorer = 1
-nnoremap <Leader>vc :<C-u>VimFilerBufferDir<CR>
-nnoremap <Leader>vi :<C-u>VimFilerBufferDir -split -simple -winwidth=35 -no-quit<CR>
+nnoremap <C-\> :<C-u>VimFilerBufferDir<CR>
 "セーフモードを無効にした状態で起動する
 let g:vimfiler_safe_mode_by_default = 0
 
@@ -265,10 +260,6 @@ nnoremap <Leader>mf :exe "CtrlP" g:memolist_path<CR>
 nnoremap <Leader>mc :MemoNew<CR>
 nnoremap <Leader>ml :MemoList<CR>
 nnoremap <Leader>mg :MemoGrep<CR>
-
-" endtagcomment
-" ------------------------------------------------------------------------------
-nnoremap <Leader>cc :<C-u>call Endtagcomment()<CR>
 
 " simple-javascript-indenter
 " ------------------------------------------------------------------------------
@@ -299,47 +290,11 @@ let g:quickrun_config['markdown'] = {
 			\	"outputter" : "null"
 			\}
 
-let g:quickrun_config['watchdogs_checker/eslint'] = {
-			\	"command" : "eslint",
-			\	"cmdopt"  : "-c $HOME/.eslintrc -f compact",
-			\	"exec"    : "%c %o %s:p",
-			\	"errorformat" : "%E%f: line %l\\,\ col %c\\,\ Error - %m," .
-			\					"%W%f: line %l\\,\ col %c\\,\ Warning - %m"
-			\}
-
-let g:quickrun_config['watchdogs_checker/coffeelint'] = {
-			\	"command" : "coffeelint",
-			\	"exec"    : "%c --reporter csv --file $HOME/.coffeelintrc %o %s:p",
-			\	"errorformat" : '%f\\,%l\\,\\,%t%*[^\\,]\\,%m,%-G%.%#',
-			\}
-
-let g:quickrun_config['javascript/watchdogs_checker'] = {
-			\	"type": "watchdogs_checker/eslint"
-			\}
-
-let g:quickrun_config['coffee/watchdogs_checker'] = {
-			\	"type": "watchdogs_checker/coffeelint"
-			\}
-
-let g:quickrun_config['haskell/watchdogs_checker'] = {
-			\	"type": "watchdogs_checker/ghc-mod"
-			\}
-
-let g:quickrun_config['watchdogs_checker/_'] = {
-			\	"outputter/quickfix/open_cmd" : ""
-			\}
-
 " <C-c> で実行を強制終了させる
 " quickrun.vim が実行していない場合には <C-c> を呼び出す
 nnoremap <expr><silent> <C-c> quickrun#is_running() ? quickrun#sweep_sessions() : "\<C-c>"
 
-nnoremap <silent> <Leader><C-r> :QuickRun<CR>
-
-" watchdogs
-" ------------------------------------------------------------------------------
-let g:watchdogs_check_BufWritePost_enable = 1
-let g:watchdogs_check_CursorHold_enable = 1
-call watchdogs#setup(g:quickrun_config)
+nnoremap <silent> <Leader>r :QuickRun<CR>
 
 " over.vim
 " ------------------------------------------------------------------------------
@@ -356,6 +311,26 @@ xmap <bs>    <Plug>SneakPrevious
 " ------------------------------------------------------------------------------
 set statusline+=[wc:%{WordCount()}]
 set updatetime=500
+
+" CtrlP
+" ------------------------------------------------------------------------------
+nnoremap <silent> <Leader>a :<C-u>CtrlP<Space>
+nnoremap <silent> <C-B> :<C-u>CtrlPBuffer<CR>
+nnoremap <silent> <Leader>cd :<C-u>CtrlPDir<CR>
+nnoremap <silent> <C-P> :<C-u>CtrlP<CR>
+nnoremap <silent> <Leader>l :<C-u>CtrlPLine<CR>
+nnoremap <silent> <C-M> :<C-u>CtrlPMRUFiles<CR>
+nnoremap <silent> <Leader>q :<C-u>CtrlPQuickfix<CR>
+nnoremap <silent> <C-S> :<C-u>CtrlPMixed<CR>
+nnoremap <silent> <Leader>t :<C-u>CtrlPTag<CR>
+
+" Open new file in current window
+let g:ctrlp_open_new_file = 'r'
+let g:ctrlp_extensions = ['tag', 'quickfix', 'dir', 'line', 'mixed']
+let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:18'
+
+let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$|node_modules|vendor\/bundle'
 
 " 外部設定ファイル
 " ==============================================================================
