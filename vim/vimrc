@@ -32,7 +32,7 @@ NeoBundle 'Shougo/vimproc', {
 NeoBundle 'tsaleh/vim-align'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'rgarver/Kwbd.vim'
-NeoBundle 'vim-scripts/The-NERD-Commenter'
+NeoBundle 'tyru/caw.vim'
 NeoBundle 'vim-scripts/sudo.vim'
 NeoBundle 'fuenor/qfixgrep.git'
 NeoBundle 'glidenote/memolist.vim'
@@ -343,6 +343,11 @@ let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:18'
 
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$|node_modules|vendor\/bundle'
+
+" caw.vim
+" ------------------------------------------------------------------------------
+nmap <Leader>c <Plug>(caw:i:toggle)
+vmap <Leader>c <Plug>(caw:i:toggle)
 
 " 外部設定ファイル
 " ==============================================================================
