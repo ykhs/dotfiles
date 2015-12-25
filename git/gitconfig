@@ -1,0 +1,38 @@
+[include]
+  path = .gitconfig.local
+[core]
+  excludesfile = $HOME/.gitignore
+  pager = less -r
+  editor = vim
+  precomposeunicode = true
+  quotepath = true
+[push]
+  default = current
+[branch]
+  autosetuprebase = always
+[merge]
+  ff = false
+[pull]
+  rebase = true
+[diff]
+  histogram = true
+[color]
+  ui = auto
+  status = auto
+  diff = auto
+  branch = auto
+  interactive = auto
+  grep = auto
+[help]
+  autocorrect = 0
+[alias]
+  alias = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\\t => \\2/' | sort
+  b = branch -a
+  br = browse-remote
+  ci = commit
+  co = checkout
+  f = fetch --prune
+  l = log --graph -n 20 --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(green)- %an, %cr%Creset'
+  s = status --short --branch
+  st = status 
+  delete-merged-branches = !git branch --merged | grep -v \\* | xargs -I % git branch -d %
