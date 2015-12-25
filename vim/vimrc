@@ -1,14 +1,22 @@
-set nocompatible
-let mapleader = ","
+set encoding=utf-8
+scriptencoding utf-8
+
+let g:mapleader = ","
+
+augroup vimrc
+	autocmd!
+augroup END
 
 " NeoBundle.vim
 " ==============================================================================
 filetype off
+
 if has('vim_starting')
-	set runtimepath+=~/.vim/neobundle.vim.git/
+	set runtimepath+=$HOME/.vim/neobundle.vim.git/
 endif
 
-call neobundle#rc(expand('~/.vim/bundle/'))
+call neobundle#begin(expand('$HOME/.vim/bundle/'))
+NeoBundleFetch 'Shougo/neobundle.vim'
 
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/vimfiler'
@@ -18,11 +26,11 @@ NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'Shougo/vimshell'
 NeoBundle 'Shougo/vimproc', {
 			\	'build' : {
-			\		'mac' : 'make -f make_mac.mak',
-			\		'unix' : 'make -f make_unix.mak',
+			\		'mac' : 'make'
 			\	},
 			\}
 NeoBundle 'tsaleh/vim-align'
+NeoBundle 'tpope/vim-surround'
 NeoBundle 'rgarver/Kwbd.vim'
 NeoBundle 'vim-scripts/The-NERD-Commenter'
 NeoBundle 'vim-scripts/sudo.vim'
@@ -45,12 +53,12 @@ NeoBundle 'nono/vim-handlebars'
 NeoBundle 'wavded/vim-stylus'
 
 " JavaScript
-NeoBundle 'pangloss/vim-javascript.git'
 NeoBundle 'jelera/vim-javascript-syntax'
-NeoBundle 'jQuery'
+NeoBundle 'othree/javascript-libraries-syntax.vim'
 NeoBundle 'digitaltoad/vim-jade'
 NeoBundle 'elzr/vim-json'
 NeoBundle 'moll/vim-node'
+NeoBundle 'mxw/vim-jsx'
 
 " Ruby
 NeoBundle 'ruby.vim'
@@ -69,28 +77,27 @@ NeoBundle 'dag/vim2hs'
 " ColorScheme
 NeoBundle 'w0ng/vim-hybrid'
 
-scriptencoding utf-8
+call neobundle#end()
+filetype plugin indent on
+
 set shortmess+=I
 set nowritebackup
 set nobackup
 set noswapfile
-set undodir=~/.vim/undo
+set undodir=$HOME/.vim_undo
 set hidden
-filetype plugin indent on
 
 " ColorScheme
 " ==============================================================================
-let g:hybrid_use_iTerm_colors = 1 " for hybrid colorscheme
+let g:hybrid_use_Xresources = 1
+set background=dark
 colorscheme hybrid
 set t_Co=256
-
 
 " Encoding
 " ==============================================================================
 set fileencodings=utf-8,cp932,euc-jp,iso-2022-jp,ucs-2,latin1
-set encoding=utf-8
 set termencoding=utf-8
-
 
 " Edit
 " ==============================================================================
@@ -108,7 +115,7 @@ endif
 set wildmenu
 
 " make したら :copen
-autocmd QuickfixCmdPost make copen
+autocmd vimrc QuickfixCmdPost make copen
 
 " insertモードを抜けるとIMEオフ
 set noimdisable
@@ -118,12 +125,12 @@ inoremap :set iminsert=0
 
 " Indent
 " -----------------------------------------------------------------------------
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
-set autoindent
-set smartindent
-
+set expandtab
+set cindent
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+set shiftround
 
 " View
 " ==============================================================================
@@ -149,7 +156,6 @@ set showtabline=2
 
 set statusline=%t\ %m%r%h%w[%Y][%{&fenc}][%{&ff}]%=%11p%%\ %l,%c
 
-
 " Search
 " ==============================================================================
 set ignorecase
@@ -169,6 +175,11 @@ endif
 
 au BufEnter * silent! lcd %:p:h
 
+" grep周り
+nnoremap [q :cprevious<CR>
+nnoremap ]q :cnext<CR>
+nnoremap [Q :<C-u>cfirst<CR>
+nnoremap ]Q :<C-u>clast<CR>
 
 " Common Keymap
 " ==============================================================================
@@ -185,7 +196,6 @@ nnoremap j gj
 nnoremap k gk
 
 nnoremap <silent> <ESC><ESC> :nohl<CR>
-
 
 " Plugin
 " ==============================================================================
@@ -219,15 +229,15 @@ inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
 inoremap <expr><C-y>  neocomplete#close_popup()
 inoremap <expr><C-e>  neocomplete#cancel_popup()
 " Enable omni completion.
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+autocmd vimrc FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd vimrc FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd vimrc FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd vimrc FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd vimrc FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
 " neosnippet
 " ------------------------------------------------------------------------------
-let g:neosnippet#snippets_directory= expand('~/.vim/snippets')
+let g:neosnippet#snippets_directory= expand('$HOME/.vim/snippets')
 imap <C-k> <Plug>(neosnippet_expand_or_jump)
 smap <C-k> <Plug>(neosnippet_expand_or_jump)
 
@@ -242,7 +252,9 @@ let g:Align_xstrlen=3
 " VimFiler
 " ------------------------------------------------------------------------------
 let g:vimfiler_as_default_explorer = 1
-nnoremap <C-\> :<C-u>VimFilerBufferDir<CR>
+noremap <C-\> :VimFilerCurrentDir -split -simple -winwidth=45 -no-quit<ENTER>
+autocmd vimrc FileType vimfiler nmap <buffer> <CR> <Plug>(vimfiler_expand_or_edit)
+"nnoremap <C-\> :<C-u>VimFilerBufferDir<CR>
 "セーフモードを無効にした状態で起動する
 let g:vimfiler_safe_mode_by_default = 0
 
@@ -253,18 +265,13 @@ let g:indent_guides_guide_size = 1
 
 " memolist
 " ------------------------------------------------------------------------------
-let g:memolist_path = expand('~/Dropbox/memolist.vim')
+let g:memolist_path = expand('$HOME/Dropbox/memolist.vim')
 let g:memolist_memo_suffix = 'md'
 let g:memolist_qfixgrep = 1
 nnoremap <Leader>mf :exe "CtrlP" g:memolist_path<CR>
 nnoremap <Leader>mc :MemoNew<CR>
 nnoremap <Leader>ml :MemoList<CR>
 nnoremap <Leader>mg :MemoGrep<CR>
-
-" simple-javascript-indenter
-" ------------------------------------------------------------------------------
-let g:SimpleJsIndenter_BriefMode = 1
-let g:SimpleJsIndenter_CaseIndentLevel = -1
 
 " quickrun
 " ------------------------------------------------------------------------------
@@ -315,13 +322,13 @@ set updatetime=500
 " CtrlP
 " ------------------------------------------------------------------------------
 nnoremap <silent> <Leader>a :<C-u>CtrlP<Space>
-nnoremap <silent> <C-B> :<C-u>CtrlPBuffer<CR>
+nnoremap <silent> <C-X><C-B> :<C-u>CtrlPBuffer<CR>
 nnoremap <silent> <Leader>cd :<C-u>CtrlPDir<CR>
 nnoremap <silent> <C-P> :<C-u>CtrlP<CR>
 nnoremap <silent> <Leader>l :<C-u>CtrlPLine<CR>
-nnoremap <silent> <C-M> :<C-u>CtrlPMRUFiles<CR>
+nnoremap <silent> <C-X><C-M> :<C-u>CtrlPMRUFiles<CR>
 nnoremap <silent> <Leader>q :<C-u>CtrlPQuickfix<CR>
-nnoremap <silent> <C-S> :<C-u>CtrlPMixed<CR>
+nnoremap <silent> <C-X><C-S> :<C-u>CtrlPMixed<CR>
 nnoremap <silent> <Leader>t :<C-u>CtrlPTag<CR>
 
 " Open new file in current window
@@ -335,6 +342,6 @@ let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$|node_modules|vendor\/bundle'
 " 外部設定ファイル
 " ==============================================================================
 " vimrc.local が存在していれば読み込む
-if filereadable(expand('~/.vim/vimrc.local'))
+if filereadable(expand('$HOME/.vim/vimrc.local'))
 	source ~/.vim/vimrc.local
 endif

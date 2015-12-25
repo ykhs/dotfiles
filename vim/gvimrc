@@ -17,6 +17,7 @@ if has('win32')
     set linespace=1
 elseif has('mac')
     set guifont=Menlo:h14
+    set linespace=4
 elseif has('xfontset')
     set guifontset=a14,r14,k14
     set linespace=0
