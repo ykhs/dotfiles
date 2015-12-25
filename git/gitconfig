@@ -36,3 +36,5 @@
   s = status --short --branch
   st = status 
   delete-merged-branches = !git branch --merged | grep -v \\* | xargs -I % git branch -d %
+[ghq]
+  root = ~/src
