@@ -37,6 +37,7 @@ NeoBundle 'vim-scripts/sudo.vim'
 NeoBundle 'fuenor/qfixgrep.git'
 NeoBundle 'glidenote/memolist.vim'
 NeoBundle 'kien/ctrlp.vim'
+NeoBundle 'mattn/ctrlp-ghq'
 NeoBundle 'nathanaelkane/vim-indent-guides.git'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'thinca/vim-fontzoom'
@@ -330,11 +331,11 @@ set updatetime=500
 
 " CtrlP
 " ------------------------------------------------------------------------------
-let g:ctrlp_map = '<Nop>'
-nnoremap <silent> <C-P><C-P> :<C-u>CtrlPMixed<CR>
-nnoremap <silent> <C-P><C-B> :<C-u>CtrlPBuffer<CR>
-nnoremap <silent> <C-P><C-M> :<C-u>CtrlPMRUFiles<CR>
-nnoremap <silent> <C-P><C-L> :<C-u>CtrlPLine<CR>
+"nnoremap <Leader>p :<C-u>CtrlPMixed<CR>
+noremap <Leader>b :<C-u>CtrlPBuffer<CR>
+noremap <Leader>m :<C-u>CtrlPMRUFiles<CR>
+noremap <Leader>l :<C-u>CtrlPLine<CR>
+noremap <Leader>g :<C-u>CtrlPGhq<CR>
 
 " Open new file in current window
 let g:ctrlp_open_new_file = 'r'
