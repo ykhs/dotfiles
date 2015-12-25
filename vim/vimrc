@@ -330,19 +330,15 @@ set updatetime=500
 
 " CtrlP
 " ------------------------------------------------------------------------------
-nnoremap <silent> <Leader>a :<C-u>CtrlP<Space>
-nnoremap <silent> <C-X><C-B> :<C-u>CtrlPBuffer<CR>
-nnoremap <silent> <Leader>cd :<C-u>CtrlPDir<CR>
-nnoremap <silent> <C-P> :<C-u>CtrlP<CR>
-nnoremap <silent> <Leader>l :<C-u>CtrlPLine<CR>
-nnoremap <silent> <C-X><C-M> :<C-u>CtrlPMRUFiles<CR>
-nnoremap <silent> <Leader>q :<C-u>CtrlPQuickfix<CR>
-nnoremap <silent> <C-X><C-S> :<C-u>CtrlPMixed<CR>
-nnoremap <silent> <Leader>t :<C-u>CtrlPTag<CR>
+let g:ctrlp_map = '<Nop>'
+nnoremap <silent> <C-P><C-P> :<C-u>CtrlPMixed<CR>
+nnoremap <silent> <C-P><C-B> :<C-u>CtrlPBuffer<CR>
+nnoremap <silent> <C-P><C-M> :<C-u>CtrlPMRUFiles<CR>
+nnoremap <silent> <C-P><C-L> :<C-u>CtrlPLine<CR>
 
 " Open new file in current window
 let g:ctrlp_open_new_file = 'r'
-let g:ctrlp_extensions = ['tag', 'quickfix', 'dir', 'line', 'mixed']
+let g:ctrlp_extensions = ['line', 'mixed']
 let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:18'
 
 let g:ctrlp_working_path_mode = 'ra'
