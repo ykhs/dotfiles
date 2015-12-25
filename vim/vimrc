@@ -49,17 +49,21 @@ NeoBundle 'osyo-manga/vim-over'
 " HTML
 NeoBundle 'othree/html5.vim'
 NeoBundle 'nono/vim-handlebars'
+NeoBundle 'digitaltoad/vim-jade'
 
 " CSS
 NeoBundle 'wavded/vim-stylus'
 
 " JavaScript
-NeoBundle 'jelera/vim-javascript-syntax'
-NeoBundle 'othree/javascript-libraries-syntax.vim'
-NeoBundle 'digitaltoad/vim-jade'
-NeoBundle 'elzr/vim-json'
-NeoBundle 'moll/vim-node'
+"NeoBundle 'jelera/vim-javascript-syntax'
+"NeoBundle 'othree/javascript-libraries-syntax.vim'
+"NeoBundle 'elzr/vim-json'
+"NeoBundle 'moll/vim-node'
+NeoBundle 'pangloss/vim-javascript'
+NeoBundle 'jiangmiao/simple-javascript-indenter'
+NeoBundle 'othree/yajs.vim'
 NeoBundle 'mxw/vim-jsx'
+NeoBundle 'isRuslan/vim-es6'
 
 " Ruby
 NeoBundle 'ruby.vim'
@@ -349,6 +353,11 @@ let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$|node_modules|vendor\/bundle'
 " ------------------------------------------------------------------------------
 nmap <Leader>c <Plug>(caw:i:toggle)
 vmap <Leader>c <Plug>(caw:i:toggle)
+
+" Simple-Javascript-Indenter
+" ------------------------------------------------------------------------------
+let g:SimpleJsIndenter_BriefMode = 2
+let g:SimpleJsIndenter_CaseIndentLevel = -1
 
 " 外部設定ファイル
 " ==============================================================================
