@@ -336,11 +336,12 @@ set updatetime=500
 
 " CtrlP
 " ------------------------------------------------------------------------------
+let g:ctrlp_map = '<Nop>'
 "nnoremap <LeaderGstatus>p :<C-u>CGstatusGstatustrlPMixed<CR>
-noremap <Leader>pb :<C-u>CtrlPBuffer<CR>
-noremap <Leader>pm :<C-u>CtrlPMRUFiles<CR>
-noremap <Leader>pl :<C-u>CtrlPLine<CR>
-noremap <Leader>pg :<C-u>CtrlPGhq<CR>
+noremap <C-p><C-b> :<C-u>CtrlPBuffer<CR>
+noremap <C-p><C-m> :<C-u>CtrlPMRUFiles<CR>
+noremap <C-p><C-l> :<C-u>CtrlPLine<CR>
+noremap <C-p><C-g> :<C-u>CtrlPGhq<CR>
 
 " Open new file in current window
 let g:ctrlp_open_new_file = 'r'
