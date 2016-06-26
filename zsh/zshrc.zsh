@@ -158,24 +158,9 @@ alias gco='git checkout'
 alias ga='git add'
 alias gc='git commit'
 
-# hub
-if type hub > /dev/null 2>&1; then
-	eval "$(hub alias -s)"
-fi
-
-if [ -f $ZSH/zshrc.mine ]; then
-	source $ZSH/zshrc.mine
-fi
-
-if [ -f $ZSH/zshrc.local ]; then
-	source $ZSH/zshrc.local
-fi
-
+# tmuxinator
+# ==============================================================================
 if [ -f $ZSH/tmuxinator.zsh ]; then
 	source $ZSH/tmuxinator.zsh
 fi
 
-# added by travis gem
-[ -f $HOME/.travis/travis.sh ] && source $HOME/.travis/travis.sh
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"

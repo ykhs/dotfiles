@@ -29,8 +29,9 @@ ln -fsv ${dotfiles_dir}/vimperator/vimperatorrc $HOME/.vimperatorrc
 
 # zsh
 # ------------------------------------------------------------------------------
-ln -fsv ${dotfiles_dir}/zsh/zshrc $HOME/.zshrc
-ln -fsv ${dotfiles_dir}/zsh/zshenv $HOME/.zshenv
+ln -fsv ${dotfiles_dir}/zsh/zshenv.zsh $HOME/.zshenv
+ln -fsv ${dotfiles_dir}/zsh/zprofile.zsh $HOME/.zprofile
+ln -fsv ${dotfiles_dir}/zsh/zshrc.zsh $HOME/.zshrc
 
 if [ ! -d $HOME/.zsh ]; then
 	mkdir $HOME/.zsh
@@ -38,17 +39,6 @@ fi
 
 touch $HOME/.zsh/history
 touch $HOME/.zsh/compdump
-
-if [ -f ${dotfiles_dir}/zsh/zshrc.mine ]; then
-	ln -fsv ${dotfiles_dir}/zsh/zshrc.mine $HOME/.zsh/zshrc.mine
-fi
-
-if [ -f ${dotfiles_dir}/zsh/zshenv.mine ]; then
-	ln -fsv ${dotfiles_dir}/zsh/zshenv.mine $HOME/.zsh/zshenv.mine
-fi
-
-touch $HOME/.zsh/zshenv.local
-touch $HOME/.zsh/zshrc.local
 
 if [ -L $HOME/.zsh/completion ]; then
 	rm $HOME/.zsh/completion
