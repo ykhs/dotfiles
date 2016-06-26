@@ -32,11 +32,12 @@ $ '
 # History
 # ==============================================================================
 HISTFILE=$ZSH/history
-HISTSIZE=10000
-SAVEHIST=10000
-setopt hist_ignore_all_dups
-setopt hist_no_store
-setopt hist_reduce_blanks
+HISTSIZE=10000000
+SAVEHIST=$HISTSIZE
+setopt extended_history
+setopt hist_ignore_dups
+setopt hist_ignore_space
+setopt inc_append_history
 setopt share_history
 #bindkey '^R' history-incremental-pattern-search-backward
 #bindkey '^S' history-incremental-pattern-search-forward
