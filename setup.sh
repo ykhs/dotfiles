@@ -78,7 +78,3 @@ ln -fsv ${dotfiles_dir}/jshint/jshintrc $HOME/.jshintrc
 # ------------------------------------------------------------------------------
 ln -fsv ${dotfiles_dir}/eslint/eslintrc.json $HOME/.eslintrc
 
-# coffeelint
-# ------------------------------------------------------------------------------
-ln -fsv ${dotfiles_dir}/coffeelint/coffeelintrc $HOME/.coffeelintrc
-
