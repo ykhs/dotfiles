@@ -70,10 +70,6 @@ if [ ! -d $HOME/.peco ]; then
 fi
 ln -fsv ${dotfiles_dir}/peco/config.json $HOME/.peco/config.json
 
-# jshint
-# ------------------------------------------------------------------------------
-ln -fsv ${dotfiles_dir}/jshint/jshintrc $HOME/.jshintrc
-
 # eslint
 # ------------------------------------------------------------------------------
 ln -fsv ${dotfiles_dir}/eslint/eslintrc.json $HOME/.eslintrc
