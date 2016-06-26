@@ -19,12 +19,22 @@ set runtimepath+=$HOME/.vim/dein.vim
 call dein#begin(expand('$HOME/.vim/bundle'))
 
 call dein#add('Shougo/unite.vim')
-call dein#add('Shougo/vimfiler')
+call dein#add('Shougo/unite-outline', {
+      \   'depends': ['Shougo/unite.vim']
+      \ })
+call dein#add('Shougo/vimfiler', {
+      \   'depends': ['Shougo/unite.vim']
+      \ })
 call dein#add('Shougo/neocomplete.vim')
 call dein#add('Shougo/neosnippet')
 call dein#add('Shougo/neosnippet-snippets')
+call dein#add('Shougo/neomru.vim', {
+      \   'depends': ['Shougo/unite.vim']
+      \ })
 call dein#add('Shougo/vimshell')
-call dein#add('Shougo/vimproc', {'build': 'make'})
+call dein#add('Shougo/vimproc', {
+      \   'build': 'make'
+      \ })
 call dein#add('tsaleh/vim-align')
 call dein#add('tpope/vim-surround')
 call dein#add('rgarver/Kwbd.vim')
@@ -206,6 +216,21 @@ function! s:unite_my_settings()
 	imap <buffer> <C-j> <Plug>(unite_exit)
 	imap <buffer> <C-o> <Plug>(unite_insert_leave):<C-u>call unite#mappings#do_action('above')<CR>
 endfunction
+
+" バッファ一覧
+nnoremap <Leader>ub :<C-u>Unite buffer<CR>
+
+" 行一覧
+nnoremap <Leader>ul :<C-u>Unite line<CR>
+
+" アウトライン一覧
+nnoremap <Leader>uo :<C-u>Unite -no-start-insert outline<CR>
+
+" ファイル一覧
+nnoremap <Leader>uf :<C-u>UniteWithBufferDir -no-start-insert file<CR>
+
+" 履歴一覧
+nnoremap <Leader>um :<C-u>Unite file_mru<CR>
 
 " neocomplete
 " ------------------------------------------------------------------------------
