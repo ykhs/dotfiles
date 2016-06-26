@@ -1,7 +1,7 @@
 [include]
   path = .gitconfig.local
 [core]
-  excludesfile = $HOME/.gitignore
+  excludesfile = ~/.gitignore
   pager = less -r
   editor = vim
   precomposeunicode = true
