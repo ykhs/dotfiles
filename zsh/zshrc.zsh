@@ -163,9 +163,11 @@ alias gco='git checkout'
 alias ga='git add'
 alias gc='git commit'
 
+alias vi='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim -u $HOME/.vimrc "$@"'
+alias vim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim -u $HOME/.vimrc "$@"'
+
 # tmuxinator
 # ==============================================================================
 if [ -f $ZSH/tmuxinator.zsh ]; then
 	source $ZSH/tmuxinator.zsh
 fi
-
