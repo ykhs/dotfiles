@@ -55,9 +55,13 @@ fpath=($ZSH/completion $fpath)
 autoload -U compinit
 compinit -u
 compinit -d $ZSH/compdump
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
-zstyle ':completion:*:default' menu select=1
+zstyle ':completion:*' format '%B%d%b'
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z} r:|[._-]=*'
+zstyle ':completion:*:default' menu select=2
+zstyle ':completion:*:default' list-colors ""
 zstyle ':completion:*:cd:*' ignore-parents parent pwd
+setopt glob_complete
 
 # recent dirs
 # ==============================================================================
