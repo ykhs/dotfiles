@@ -4,7 +4,7 @@ export EDITOR=/Applications/MacVim.app/Contents/MacOS/Vim
 export GIT_EDITOR=/Applications/MacVim.app/Contents/MacOS/Vim
 
 # go
-export GOPATH=$HOME
+export GOPATH=$HOME/.go
 
 # travis
 if [ -f $HOME/.travis/travis.sh ]; then

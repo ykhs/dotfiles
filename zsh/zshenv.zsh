@@ -4,6 +4,7 @@ path=(
   $HOME/local/bin(N-/)
   /usr/local/heroku/bin(N-/)
   $HOME/homebrew/bin(N-/)
+  $HOME/.go/bin(N-/)
   $HOME/.anyenv/bin(N-/)
   /usr/local/bin(N-/)
   /usr/bin(N-/)
@@ -11,4 +12,3 @@ path=(
   /usr/sbin(N-/)
   /sbin(N-/)
 )
-
