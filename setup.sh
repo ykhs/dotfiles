@@ -23,6 +23,10 @@ if [ -L $HOME/.vim ]; then
 fi
 ln -fsv ${dotfiles_dir}/vim/vimfiles $HOME/.vim
 
+if [ ! -d $HOME/.vim_undo ]; then
+	mkdir $HOME/.vim_undo
+fi
+
 # vimperator
 # ------------------------------------------------------------------------------
 ln -fsv ${dotfiles_dir}/vimperator/vimperatorrc $HOME/.vimperatorrc

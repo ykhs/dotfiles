@@ -83,6 +83,7 @@ set shortmess+=I
 set nowritebackup
 set nobackup
 set noswapfile
+set undofile
 set undodir=$HOME/.vim_undo
 set hidden
 
