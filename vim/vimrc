@@ -22,6 +22,9 @@ call dein#add('Shougo/unite.vim')
 call dein#add('Shougo/unite-outline', {
       \   'depends': ['Shougo/unite.vim']
       \ })
+call dein#add('sorah/unite-ghq', {
+      \   'depends': ['Shougo/unite.vim']
+      \ })
 call dein#add('Shougo/vimfiler', {
       \   'depends': ['Shougo/unite.vim']
       \ })
@@ -217,11 +220,17 @@ function! s:unite_my_settings()
 	imap <buffer> <C-o> <Plug>(unite_insert_leave):<C-u>call unite#mappings#do_action('above')<CR>
 endfunction
 
+" 大文字小文字を区別しない
+let g:unite_enable_ignore_case = 1
+
+" 大文字を入力したらignore_caseを無効にする
+let g:unite_enable_smart_case = 1
+
 " バッファ一覧
-nnoremap <Leader>ub :<C-u>Unite buffer<CR>
+nnoremap <Leader>ub :<C-u>Unite -start-insert buffer<CR>
 
 " 行一覧
-nnoremap <Leader>ul :<C-u>Unite line<CR>
+nnoremap <Leader>ul :<C-u>Unite -no-start-insert line<CR>
 
 " アウトライン一覧
 nnoremap <Leader>uo :<C-u>Unite -no-start-insert outline<CR>
@@ -230,7 +239,10 @@ nnoremap <Leader>uo :<C-u>Unite -no-start-insert outline<CR>
 nnoremap <Leader>uf :<C-u>UniteWithBufferDir -no-start-insert file<CR>
 
 " 履歴一覧
-nnoremap <Leader>um :<C-u>Unite file_mru<CR>
+nnoremap <Leader>um :<C-u>Unite -start-insert file_mru<CR>
+
+" バッファ一覧
+nnoremap <Leader>ug :<C-u>Unite -start-insert ghq<CR>
 
 " neocomplete
 " ------------------------------------------------------------------------------
