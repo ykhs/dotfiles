@@ -1,7 +1,7 @@
 set encoding=utf-8
 scriptencoding utf-8
 
-let g:mapleader = ","
+let g:mapleader = ','
 
 augroup vimrc
 	autocmd!
@@ -54,6 +54,10 @@ call dein#add('rhysd/clever-f.vim')
 call dein#add('justinmk/vim-sneak')
 call dein#add('osyo-manga/vim-over')
 call dein#add('tpope/vim-fugitive')
+call dein#add('osyo-manga/shabadou.vim')
+call dein#add('osyo-manga/vim-watchdogs')
+call dein#add('cohama/vim-hier')
+call dein#add('dannyob/quickfixstatus')
 
 " HTML
 call dein#add('othree/html5.vim')
@@ -64,8 +68,6 @@ call dein#add('digitaltoad/vim-jade')
 call dein#add('wavded/vim-stylus')
 
 " JavaScript
-call dein#add('pangloss/vim-javascript')
-call dein#add('jiangmiao/simple-javascript-indenter')
 call dein#add('othree/yajs.vim')
 call dein#add('mxw/vim-jsx')
 call dein#add('isRuslan/vim-es6')
@@ -257,17 +259,17 @@ inoremap <expr><C-l>     neocomplete#complete_common_string()
 " <CR>: close popup and save indent.
 inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
 function! s:my_cr_function()
-  return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
+  return (pumvisible() ? '\<C-y>' : '' ) . '\<CR>'
   " For no inserting <CR> key.
-  "return pumvisible() ? "\<C-y>" : "\<CR>"
+  "return pumvisible() ? '\<C-y>' : '\<CR>'
 endfunction
 " <TAB>: completion.
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr><TAB>  pumvisible() ? '\<C-n>' : '\<TAB>'
 " <C-h>, <BS>: close popup and delete backword char.
-inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
-inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+inoremap <expr><C-h> neocomplete#smart_close_popup().'\<C-h>'
+inoremap <expr><BS> neocomplete#smart_close_popup().'\<C-h>'
 " Close popup by <Space>.
-"inoremap <expr><Space> pumvisible() ? "\<C-y>" : "\<Space>"
+"inoremap <expr><Space> pumvisible() ? '\<C-y>' : '\<Space>'
 
 " Enable omni completion.
 autocmd vimrc FileType css setlocal omnifunc=csscomplete#CompleteCSS
@@ -314,28 +316,28 @@ let g:indent_guides_guide_size = 1
 let g:quickrun_config = {}
 
 let g:quickrun_config['_'] = {
-			\	"outputter/buffer/split" : ":botright 8sp",
-			\	"runner": "vimproc",
-			\	"runner/vimproc/updatetime": 60
+			\	'outputter/buffer/split' : ':botright 8sp',
+			\	'runner': 'vimproc',
+			\	'runner/vimproc/updatetime': 60
 			\}
 
 let g:quickrun_config['html'] = {
-			\	"command" : "open",
-			\	"exec"    : "%c %s",
-			\	"outputter" : "null"
+			\	'command' : 'open',
+			\	'exec'    : '%c %s',
+			\	'outputter' : 'null'
 			\}
 
 let g:quickrun_config['markdown'] = {
-			\	"command" : "open",
-			\	"cmdopt" : '-a',
-			\	"args" : 'Marked',
-			\	"exec" : "%c %o %a %s",
-			\	"outputter" : "null"
+			\	'command' : 'open',
+			\	'cmdopt' : '-a',
+			\	'args' : 'Marked',
+			\	'exec' : '%c %o %a %s',
+			\	'outputter' : 'null'
 			\}
 
 " <C-c> で実行を強制終了させる
 " quickrun.vim が実行していない場合には <C-c> を呼び出す
-nnoremap <expr><silent> <C-c> quickrun#is_running() ? quickrun#sweep_sessions() : "\<C-c>"
+nnoremap <expr><silent> <C-c> quickrun#is_running() ? quickrun#sweep_sessions() : '\<C-c>'
 
 nnoremap <silent> <Leader>r :QuickRun<CR>
 
@@ -388,6 +390,27 @@ let g:SimpleJsIndenter_CaseIndentLevel = -1
 nnoremap <Leader>gs :Gstatus<CR>
 nnoremap <Leader>gb :Gblame<CR>
 nnoremap <Leader>gd :Gdiff<CR>
+
+" watchdogs.vim
+" ------------------------------------------------------------------------------
+let g:quickrun_config['watchdogs_checker/_'] = {
+      \   'outputter/quickfix/open_cmd': '',
+      \ }
+let g:quickrun_config['vim/watchdogs_checker'] = {
+      \   'type': executable('vint') ? 'watchdogs_checker/vint' : '',
+      \ }
+let g:quickrun_config['watchdogs_checker/vint'] = {
+      \   'command': 'vint',
+      \   'exec': '%c %o %s:p ',
+      \ }
+let g:quickrun_config['javascript/watchdogs_checker'] = {
+      \   'type': 'watchdogs_checker/eslint',
+      \ }
+call watchdogs#setup(g:quickrun_config)
+
+" 一定時間キー入力がなかった場合にシンタックスチェックを行う
+" バッファに書き込み後、1度だけ行われる
+let g:watchdogs_check_CursorHold_enable = 1
 
 " 外部設定ファイル
 " ==============================================================================

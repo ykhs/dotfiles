@@ -16,8 +16,8 @@ ln -fsv ${dotfiles_dir}/tmux/tmux.conf $HOME/.tmux.conf
 
 # vim
 # ------------------------------------------------------------------------------
-ln -fsv ${dotfiles_dir}/vim/vimrc $HOME/.vimrc
-ln -fsv ${dotfiles_dir}/vim/gvimrc $HOME/.gvimrc
+ln -fsv ${dotfiles_dir}/vim/vimrc.vimrc $HOME/.vimrc
+ln -fsv ${dotfiles_dir}/vim/gvimrc.vimrc $HOME/.gvimrc
 if [ -L $HOME/.vim ]; then
 	rm $HOME/.vim
 fi
