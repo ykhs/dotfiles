@@ -7,10 +7,6 @@ augroup vimrc
 	autocmd!
 augroup END
 
-if &compatible
-  set nocompatible
-endif
-
 " dein.vim
 " ==============================================================================
 filetype off
@@ -185,7 +181,7 @@ set wrapscan
 nnoremap n nzzzv
 nnoremap N Nzzzv
 
-au BufEnter * silent! lcd %:p:h
+autocmd vimrc BufEnter * silent! lcd %:p:h
 
 " grep周り
 nnoremap [q :cprevious<CR>
@@ -254,22 +250,6 @@ let g:neocomplete#enable_smart_case = 1
 " Plugin key-mappings.
 inoremap <expr><C-g>     neocomplete#undo_completion()
 inoremap <expr><C-l>     neocomplete#complete_common_string()
-
-" Recommended key-mappings.
-" <CR>: close popup and save indent.
-inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-function! s:my_cr_function()
-  return (pumvisible() ? '\<C-y>' : '' ) . '\<CR>'
-  " For no inserting <CR> key.
-  "return pumvisible() ? '\<C-y>' : '\<CR>'
-endfunction
-" <TAB>: completion.
-inoremap <expr><TAB>  pumvisible() ? '\<C-n>' : '\<TAB>'
-" <C-h>, <BS>: close popup and delete backword char.
-inoremap <expr><C-h> neocomplete#smart_close_popup().'\<C-h>'
-inoremap <expr><BS> neocomplete#smart_close_popup().'\<C-h>'
-" Close popup by <Space>.
-"inoremap <expr><Space> pumvisible() ? '\<C-y>' : '\<Space>'
 
 " Enable omni completion.
 autocmd vimrc FileType css setlocal omnifunc=csscomplete#CompleteCSS
