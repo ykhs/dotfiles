@@ -4,7 +4,7 @@ scriptencoding utf-8
 let g:mapleader = ','
 
 augroup vimrc
-	autocmd!
+  autocmd!
 augroup END
 
 " dein.vim
@@ -16,24 +16,24 @@ call dein#begin(expand('$HOME/.vim/bundle'))
 
 call dein#add('Shougo/unite.vim')
 call dein#add('Shougo/unite-outline', {
-      \   'depends': ['Shougo/unite.vim']
-      \ })
+\   'depends': ['Shougo/unite.vim']
+\ })
 call dein#add('sorah/unite-ghq', {
-      \   'depends': ['Shougo/unite.vim']
-      \ })
+\   'depends': ['Shougo/unite.vim']
+\ })
 call dein#add('Shougo/vimfiler', {
-      \   'depends': ['Shougo/unite.vim']
-      \ })
+\   'depends': ['Shougo/unite.vim']
+\ })
 call dein#add('Shougo/neocomplete.vim')
 call dein#add('Shougo/neosnippet')
 call dein#add('Shougo/neosnippet-snippets')
 call dein#add('Shougo/neomru.vim', {
-      \   'depends': ['Shougo/unite.vim']
-      \ })
+\   'depends': ['Shougo/unite.vim']
+\ })
 call dein#add('Shougo/vimshell')
 call dein#add('Shougo/vimproc', {
-      \   'build': 'make'
-      \ })
+\   'build': 'make'
+\ })
 call dein#add('tsaleh/vim-align')
 call dein#add('tpope/vim-surround')
 call dein#add('rgarver/Kwbd.vim')
@@ -121,7 +121,7 @@ set formatoptions+=mM
 set virtualedit=block
 set whichwrap=b,s,h,l,<,>,[,],~
 if exists('&ambiwidth')
-	set ambiwidth=double
+  set ambiwidth=double
 endif
 set wildmenu
 
@@ -133,7 +133,6 @@ set noimdisable
 set iminsert=0 imsearch=0
 set noimcmdline
 inoremap :set iminsert=0
-
 " Indent
 " -----------------------------------------------------------------------------
 set expandtab
@@ -142,6 +141,7 @@ set tabstop=2
 set shiftwidth=2
 set softtabstop=2
 set shiftround
+let g:vim_indent_cont=0
 
 " View
 " ==============================================================================
@@ -211,11 +211,11 @@ nnoremap <silent> <ESC><ESC> :nohl<CR>
 " unite.vim
 " ------------------------------------------------------------------------------
 function! s:unite_my_settings()
-	imap <buffer> jj <Plug>(unite_insert_leave)
-	nmap <buffer> <Esc> <Plug>(unite_exit)
-	imap <buffer> <Esc> <Plug>(unite_exit)
-	imap <buffer> <C-j> <Plug>(unite_exit)
-	imap <buffer> <C-o> <Plug>(unite_insert_leave):<C-u>call unite#mappings#do_action('above')<CR>
+  imap <buffer> jj <Plug>(unite_insert_leave)
+  nmap <buffer> <Esc> <Plug>(unite_exit)
+  imap <buffer> <Esc> <Plug>(unite_exit)
+  imap <buffer> <C-j> <Plug>(unite_exit)
+  imap <buffer> <C-o> <Plug>(unite_insert_leave):<C-u>call unite#mappings#do_action('above')<CR>
 endfunction
 
 " 大文字小文字を区別しない
@@ -296,24 +296,24 @@ let g:indent_guides_guide_size = 1
 let g:quickrun_config = {}
 
 let g:quickrun_config['_'] = {
-			\	'outputter/buffer/split' : ':botright 8sp',
-			\	'runner': 'vimproc',
-			\	'runner/vimproc/updatetime': 60
-			\}
+\   'outputter/buffer/split' : ':botright 8sp',
+\   'runner': 'vimproc',
+\   'runner/vimproc/updatetime': 60
+\ }
 
 let g:quickrun_config['html'] = {
-			\	'command' : 'open',
-			\	'exec'    : '%c %s',
-			\	'outputter' : 'null'
-			\}
+\   'command' : 'open',
+\   'exec'    : '%c %s',
+\   'outputter' : 'null'
+\ }
 
 let g:quickrun_config['markdown'] = {
-			\	'command' : 'open',
-			\	'cmdopt' : '-a',
-			\	'args' : 'Marked',
-			\	'exec' : '%c %o %a %s',
-			\	'outputter' : 'null'
-			\}
+\   'command' : 'open',
+\   'cmdopt' : '-a',
+\   'args' : 'Marked',
+\   'exec' : '%c %o %a %s',
+\   'outputter' : 'null'
+\ }
 
 " <C-c> で実行を強制終了させる
 " quickrun.vim が実行していない場合には <C-c> を呼び出す
@@ -374,18 +374,18 @@ nnoremap <Leader>gd :Gdiff<CR>
 " watchdogs.vim
 " ------------------------------------------------------------------------------
 let g:quickrun_config['watchdogs_checker/_'] = {
-      \   'outputter/quickfix/open_cmd': '',
-      \ }
+\   'outputter/quickfix/open_cmd': '',
+\ }
 let g:quickrun_config['vim/watchdogs_checker'] = {
-      \   'type': executable('vint') ? 'watchdogs_checker/vint' : '',
-      \ }
+\   'type': executable('vint') ? 'watchdogs_checker/vint' : '',
+\ }
 let g:quickrun_config['watchdogs_checker/vint'] = {
-      \   'command': 'vint',
-      \   'exec': '%c %o %s:p ',
-      \ }
+\   'command': 'vint',
+\   'exec': '%c %o %s:p ',
+\ }
 let g:quickrun_config['javascript/watchdogs_checker'] = {
-      \   'type': 'watchdogs_checker/eslint',
-      \ }
+\   'type': 'watchdogs_checker/eslint',
+\ }
 call watchdogs#setup(g:quickrun_config)
 
 " 一定時間キー入力がなかった場合にシンタックスチェックを行う
@@ -396,5 +396,5 @@ let g:watchdogs_check_CursorHold_enable = 1
 " ==============================================================================
 " vimrc.local が存在していれば読み込む
 if filereadable(expand('$HOME/.vim/vimrc.local'))
-	source ~/.vim/vimrc.local
+  source ~/.vim/vimrc.local
 endif
