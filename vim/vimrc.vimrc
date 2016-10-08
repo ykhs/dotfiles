@@ -160,6 +160,7 @@ set listchars=tab:^\ ,trail:~
 set showmatch
 set synmaxcol=200
 set cursorline
+set lazyredraw
 
 " 対応する括弧の強調
 set matchtime=1
@@ -391,6 +392,13 @@ call watchdogs#setup(g:quickrun_config)
 " 一定時間キー入力がなかった場合にシンタックスチェックを行う
 " バッファに書き込み後、1度だけ行われる
 let g:watchdogs_check_CursorHold_enable = 1
+
+" vim-jsx
+" ------------------------------------------------------------------------------
+" *.jsxでなくても使用
+let g:jsx_ext_required = 0
+let g:jsx_pragma_required = 0
+autocmd vimrc BufNewFile,BufRead *.jsx set filetype=javascript.jsx
 
 " 外部設定ファイル
 " ==============================================================================
