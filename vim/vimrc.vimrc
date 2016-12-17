@@ -43,17 +43,11 @@ call dein#add('fuenor/qfixgrep.git')
 call dein#add('kien/ctrlp.vim')
 call dein#add('mattn/ctrlp-ghq')
 call dein#add('nathanaelkane/vim-indent-guides.git')
-call dein#add('thinca/vim-quickrun')
 call dein#add('thinca/vim-fontzoom')
 call dein#add('fuenor/vim-wordcount')
 call dein#add('rhysd/clever-f.vim')
 call dein#add('justinmk/vim-sneak')
 call dein#add('osyo-manga/vim-over')
-call dein#add('tpope/vim-fugitive')
-call dein#add('osyo-manga/shabadou.vim')
-call dein#add('osyo-manga/vim-watchdogs')
-call dein#add('cohama/vim-hier')
-call dein#add('dannyob/quickfixstatus')
 
 " HTML
 call dein#add('othree/html5.vim')
@@ -292,36 +286,6 @@ let g:vimfiler_safe_mode_by_default = 0
 let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_guide_size = 1
 
-" quickrun
-" ------------------------------------------------------------------------------
-let g:quickrun_config = {}
-
-let g:quickrun_config['_'] = {
-\   'outputter/buffer/split' : ':botright 8sp',
-\   'runner': 'vimproc',
-\   'runner/vimproc/updatetime': 60
-\ }
-
-let g:quickrun_config['html'] = {
-\   'command' : 'open',
-\   'exec'    : '%c %s',
-\   'outputter' : 'null'
-\ }
-
-let g:quickrun_config['markdown'] = {
-\   'command' : 'open',
-\   'cmdopt' : '-a',
-\   'args' : 'Marked',
-\   'exec' : '%c %o %a %s',
-\   'outputter' : 'null'
-\ }
-
-" <C-c> で実行を強制終了させる
-" quickrun.vim が実行していない場合には <C-c> を呼び出す
-nnoremap <expr><silent> <C-c> quickrun#is_running() ? quickrun#sweep_sessions() : '\<C-c>'
-
-nnoremap <silent> <Leader>r :QuickRun<CR>
-
 " over.vim
 " ------------------------------------------------------------------------------
 nnoremap <silent> <Leader>o <C-u>:OverCommandLine<CR>%s/
@@ -365,40 +329,6 @@ vmap <Leader>c <Plug>(caw:hatpos:toggle)
 " ------------------------------------------------------------------------------
 let g:SimpleJsIndenter_BriefMode = 2
 let g:SimpleJsIndenter_CaseIndentLevel = -1
-
-" vim-fugitive
-" ------------------------------------------------------------------------------
-nnoremap <Leader>gs :Gstatus<CR>
-nnoremap <Leader>gb :Gblame<CR>
-nnoremap <Leader>gd :Gdiff<CR>
-
-" watchdogs.vim
-" ------------------------------------------------------------------------------
-let g:quickrun_config['watchdogs_checker/_'] = {
-\   'outputter/quickfix/open_cmd': '',
-\ }
-let g:quickrun_config['vim/watchdogs_checker'] = {
-\   'type': executable('vint') ? 'watchdogs_checker/vint' : '',
-\ }
-let g:quickrun_config['watchdogs_checker/vint'] = {
-\   'command': 'vint',
-\   'exec': '%c %o %s:p ',
-\ }
-let g:quickrun_config['javascript/watchdogs_checker'] = {
-\   'type': 'watchdogs_checker/eslint',
-\ }
-call watchdogs#setup(g:quickrun_config)
-
-" 一定時間キー入力がなかった場合にシンタックスチェックを行う
-" バッファに書き込み後、1度だけ行われる
-let g:watchdogs_check_CursorHold_enable = 1
-
-" vim-jsx
-" ------------------------------------------------------------------------------
-" *.jsxでなくても使用
-let g:jsx_ext_required = 0
-let g:jsx_pragma_required = 0
-autocmd vimrc BufNewFile,BufRead *.jsx set filetype=javascript.jsx
 
 " 外部設定ファイル
 " ==============================================================================
