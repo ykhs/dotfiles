@@ -49,6 +49,10 @@ call dein#add('rhysd/clever-f.vim')
 call dein#add('justinmk/vim-sneak')
 call dein#add('osyo-manga/vim-over')
 
+" Syntax chek
+call dein#add('neomake/neomake')
+call dein#add('benjie/neomake-local-eslint.vim')
+
 " HTML
 call dein#add('othree/html5.vim')
 call dein#add('nono/vim-handlebars')
@@ -320,6 +324,9 @@ let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:18'
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$|node_modules|vendor\/bundle'
 
+" ctrlp-ghqでディレクトリを直接開けるように
+let ctrlp_ghq_default_action = 'e'
+
 " caw.vim
 " ------------------------------------------------------------------------------
 nmap <Leader>c <Plug>(caw:hatpos:toggle)
@@ -329,6 +336,11 @@ vmap <Leader>c <Plug>(caw:hatpos:toggle)
 " ------------------------------------------------------------------------------
 let g:SimpleJsIndenter_BriefMode = 2
 let g:SimpleJsIndenter_CaseIndentLevel = -1
+
+" neomake
+" ------------------------------------------------------------------------------
+autocmd vimrc BufWritePost * Neomake
+let g:neomake_javascript_enabled_makers = ['eslint']
 
 " 外部設定ファイル
 " ==============================================================================
