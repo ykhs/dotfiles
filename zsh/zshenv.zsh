@@ -1,6 +1,7 @@
 setopt no_global_rcs
 typeset -U path PATH
 path=(
+  $HOME/bin(N-/)
   $HOME/local/bin(N-/)
   /usr/local/heroku/bin(N-/)
   $HOME/homebrew/bin(N-/)
