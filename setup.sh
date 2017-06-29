@@ -38,8 +38,11 @@ ln -fsv ${dotfiles_dir}/vimperator/vimperatorrc $HOME/.vimperatorrc
 # zsh
 # ------------------------------------------------------------------------------
 ln -fsv ${dotfiles_dir}/zsh/zshenv.zsh $HOME/.zshenv
-ln -fsv ${dotfiles_dir}/zsh/zprofile.zsh $HOME/.zprofile
 ln -fsv ${dotfiles_dir}/zsh/zshrc.zsh $HOME/.zshrc
+
+# omz
+ln -fsv ${dotfiles_dir}/zsh/zshrc.oh-my-zsh.zsh $HOME/.zshrc.oh-my-zsh
+ln -fsv ${dotfiles_dir}/oh-my-zsh $HOME/.oh-my-zsh
 
 if [ ! -d $HOME/.zsh ]; then
 	mkdir $HOME/.zsh
@@ -48,14 +51,9 @@ fi
 touch $HOME/.zsh/history
 touch $HOME/.zsh/compdump
 
-if [ -L $HOME/.zsh/completion ]; then
-	rm $HOME/.zsh/completion
-fi
-ln -nsv ${dotfiles_dir}/zsh/completion $HOME/.zsh/completion
-
-if [ -f ${dotfiles_dir}/zsh/tmuxinator.zsh ]; then
-	ln -fsv ${dotfiles_dir}/zsh/tmuxinator.zsh $HOME/.zsh/tmuxinator.zsh
-fi
+ln -fnsv ${dotfiles_dir}/zsh/completion $HOME/.zsh/completion
+ln -fnsv ${dotfiles_dir}/zsh/functions $HOME/.zsh/functions
+ln -fnsv ${dotfiles_dir}/zsh/init $HOME/.zsh/init
 
 # tig
 # ------------------------------------------------------------------------------

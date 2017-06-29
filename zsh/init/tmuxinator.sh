@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/bin/bash
 
 if [[ ! -o interactive ]]; then
   return
