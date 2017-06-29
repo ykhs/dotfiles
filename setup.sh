@@ -69,3 +69,11 @@ ln -fsv ${dotfiles_dir}/peco/config.json $HOME/.peco/config.json
 # eslint
 # ------------------------------------------------------------------------------
 ln -fsv ${dotfiles_dir}/eslint/eslintrc.json $HOME/.eslintrc
+
+# Atom
+# ------------------------------------------------------------------------------
+ln -fsv ${dotfiles_dir}/atom/config.cson $HOME/.atom/config.cson
+ln -fsv ${dotfiles_dir}/atom/init.coffee $HOME/.atom/init.coffee
+ln -fsv ${dotfiles_dir}/atom/keymap.cson $HOME/.atom/keymap.cson
+ln -fsv ${dotfiles_dir}/atom/snippets.cson $HOME/.atom/snippets.cson
+ln -fsv ${dotfiles_dir}/atom/styles.less $HOME/.atom/styles.less
