@@ -3,6 +3,7 @@ if [ -f "$HOME/.zshrc.oh-my-zsh" ]; then
 	source $HOME/.zshrc.oh-my-zsh
 fi
 
+fpath=($HOME/.zsh/completion $fpath)
 export LANG=ja_JP.UTF-8
 export EDITOR=vim
 
