@@ -10,6 +10,10 @@ if [ -f ${dotfiles_dir}/git/gitconfig ]; then
 	ln -fsv ${dotfiles_dir}/git/gitconfig $HOME/.gitconfig
 fi
 
+if [ -f ${dotfiles_dir}/git/gitconfig.local ]; then
+	ln -fsv ${dotfiles_dir}/git/gitconfig.local $HOME/.gitconfig.local
+fi
+
 # tmux
 # ------------------------------------------------------------------------------
 ln -fsv ${dotfiles_dir}/tmux/tmux.conf $HOME/.tmux.conf
@@ -67,4 +71,3 @@ ln -fsv ${dotfiles_dir}/peco/config.json $HOME/.peco/config.json
 # eslint
 # ------------------------------------------------------------------------------
 ln -fsv ${dotfiles_dir}/eslint/eslintrc.json $HOME/.eslintrc
-
