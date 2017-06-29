@@ -34,7 +34,8 @@
   f = fetch --prune
   l = log --graph -n 20 --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(green)- %an, %cr%Creset'
   s = status --short --branch
-  st = status 
-  delete-merged-branches = !git branch --merged | grep -v \\* | xargs -I % git branch -d %
+  st = status
+  fp = !git fetch -p && git-delete-merged-branches
+  pp = !git pull -p && git-delete-merged-branches
 [ghq]
   root = ~/src
