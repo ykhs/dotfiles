@@ -1,0 +1,1 @@
+alias -g B='`git branch | peco | sed -e "s/^\*[ ]*//g"`'

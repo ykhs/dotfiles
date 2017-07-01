@@ -39,6 +39,7 @@ ln -fsv ${dotfiles_dir}/vimperator/vimperatorrc $HOME/.vimperatorrc
 # ------------------------------------------------------------------------------
 ln -fsv ${dotfiles_dir}/zsh/zshenv.zsh $HOME/.zshenv
 ln -fsv ${dotfiles_dir}/zsh/zshrc.zsh $HOME/.zshrc
+ln -fsv ${dotfiles_dir}/aliases $HOME/.aliases
 
 # omz
 ln -fsv ${dotfiles_dir}/zsh/zshrc.oh-my-zsh.zsh $HOME/.zshrc.oh-my-zsh

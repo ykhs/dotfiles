@@ -1,6 +1,6 @@
 if [ -f "$HOME/.zshrc.oh-my-zsh" ]; then
-	DISABLE_AUTO_UPDATE=true
-	source $HOME/.zshrc.oh-my-zsh
+  DISABLE_AUTO_UPDATE=true
+  source $HOME/.zshrc.oh-my-zsh
 fi
 
 fpath=($HOME/.zsh/completion $fpath)
@@ -25,3 +25,7 @@ done
 for init in $HOME/.zsh/init/*.sh; do
   source "$init"
 done
+
+# aliases
+# ==============================================================================
+source $HOME/.aliases
