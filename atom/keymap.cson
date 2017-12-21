@@ -24,7 +24,7 @@
 # If you are unfamiliar with CSON, you can read more about it here:
 # https://github.com/bevry/cson#what-is-cson
 
-'body':
+'atom-workspace atom-text-editor:not([mini])':
   'ctrl-alt-p': 'core:page-up'
   'ctrl-alt-n': 'core:page-down'
   'ctrl-l': 'pane:split-right-and-copy-active-item'
