@@ -1,3 +1,24 @@
-[submodule "vim/vimfiles/dein.vim"]
-	path = vim/vimfiles/dein.vim
-	url = git@github.com:Shougo/dein.vim.git
+[submodule "vim/vimfiles/pack/mypackage/start/vim-easy-align"]
+	path = vim/vimfiles/pack/mypackage/start/vim-easy-align
+	url = https://github.com/junegunn/vim-easy-align
+[submodule "vim/vimfiles/pack/mypackage/start/vim-surround"]
+	path = vim/vimfiles/pack/mypackage/start/vim-surround
+	url = https://github.com/tpope/vim-surround
+[submodule "vim/vimfiles/pack/mypackage/start/Kwbd.vim"]
+	path = vim/vimfiles/pack/mypackage/start/Kwbd.vim
+	url = https://github.com/rgarver/Kwbd.vim
+[submodule "vim/vimfiles/pack/mypackage/start/caw.vim"]
+	path = vim/vimfiles/pack/mypackage/start/caw.vim
+	url = https://github.com/tyru/caw.vim
+[submodule "vim/vimfiles/pack/mypackage/start/ctrlp.vim"]
+	path = vim/vimfiles/pack/mypackage/start/ctrlp.vim
+	url = https://github.com/kien/ctrlp.vim
+[submodule "vim/vimfiles/pack/mypackage/start/vim-over"]
+	path = vim/vimfiles/pack/mypackage/start/vim-over
+	url = https://github.com/osyo-manga/vim-over
+[submodule "vim/vimfiles/pack/mypackage/start/vim-sneak"]
+	path = vim/vimfiles/pack/mypackage/start/vim-sneak
+	url = https://github.com/justinmk/vim-sneak
+[submodule "vim/vimfiles/pack/mypackage/start/vim-hybrid"]
+	path = vim/vimfiles/pack/mypackage/start/vim-hybrid
+	url = https://github.com/w0ng/vim-hybrid
