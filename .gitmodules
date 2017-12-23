@@ -22,3 +22,6 @@
 [submodule "vim/vimfiles/pack/mypackage/start/vim-hybrid"]
 	path = vim/vimfiles/pack/mypackage/start/vim-hybrid
 	url = https://github.com/w0ng/vim-hybrid
+[submodule "vim/vimfiles/pack/mypackage/start/nerdtree"]
+	path = vim/vimfiles/pack/mypackage/start/nerdtree
+	url = https://github.com/scrooloose/nerdtree
