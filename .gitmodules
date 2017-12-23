@@ -25,3 +25,6 @@
 [submodule "vim/vimfiles/pack/mypackage/start/nerdtree"]
 	path = vim/vimfiles/pack/mypackage/start/nerdtree
 	url = https://github.com/scrooloose/nerdtree
+[submodule "vim/vimfiles/pack/mypackage/start/yajs.vim"]
+	path = vim/vimfiles/pack/mypackage/start/yajs.vim
+	url = https://github.com/othree/yajs.vim
