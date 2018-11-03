@@ -11,7 +11,8 @@ bindkey -e
 
 # history
 # ==============================================================================
-SAVEHIST=1000
+setopt hist_ignore_all_dups
+SAVEHIST=100000
 HISTSIZE=100000
 
 # functions

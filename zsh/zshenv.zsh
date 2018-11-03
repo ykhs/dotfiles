@@ -7,6 +7,7 @@ path=(
   $HOME/homebrew/bin(N-/)
   $HOME/.go/bin(N-/)
   $HOME/.anyenv/bin(N-/)
+  /usr/local/opt/openssl/bin(N-/)
   /usr/local/bin(N-/)
   /usr/bin(N-/)
   /bin(N-/)
