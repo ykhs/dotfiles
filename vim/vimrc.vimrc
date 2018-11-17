@@ -147,11 +147,6 @@ xmap <enter> <Plug>SneakNext
 nmap <bs>    <Plug>SneakPrevious
 xmap <bs>    <Plug>SneakPrevious
 
-" WordCount
-" ------------------------------------------------------------------------------
-set statusline+=[wc:%{WordCount()}]
-set updatetime=500
-
 " CtrlP
 " ------------------------------------------------------------------------------
 let g:ctrlp_map = '<Nop>'
