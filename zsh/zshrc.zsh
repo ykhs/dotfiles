@@ -1,8 +1,22 @@
-if [ -f "$HOME/.zshrc.oh-my-zsh" ]; then
-  DISABLE_AUTO_UPDATE=true
-  source $HOME/.zshrc.oh-my-zsh
+# zgen
+# ==============================================================================
+if [[ -f "$HOME/.zgen/zgen.zsh" ]]; then
+  # load zgen
+  source "$HOME/.zgen/zgen.zsh"
+
+  if ! zgen saved; then
+    zgen oh-my-zsh
+    zgen oh-my-zsh themes/ys
+
+    zgen load zsh-users/zsh-completions
+    zgen load zsh-users/zsh-syntax-highlighting
+
+    zgen save
+  fi
 fi
 
+# general
+# ==============================================================================
 fpath=($HOME/.zsh/completion $fpath)
 export LANG=ja_JP.UTF-8
 export EDITOR=vim
