@@ -1,19 +1,5 @@
 dotfiles_dir=$(cd $(dirname $0);pwd)
 
-# git
-# ------------------------------------------------------------------------------
-if [ -f ${dotfiles_dir}/git/gitignore ]; then
-	ln -fsv ${dotfiles_dir}/git/gitignore $HOME/.gitignore
-fi
-
-if [ -f ${dotfiles_dir}/git/gitconfig ]; then
-	ln -fsv ${dotfiles_dir}/git/gitconfig $HOME/.gitconfig
-fi
-
-if [ -f ${dotfiles_dir}/git/gitconfig.local ]; then
-	ln -fsv ${dotfiles_dir}/git/gitconfig.local $HOME/.gitconfig.local
-fi
-
 # tmux
 # ------------------------------------------------------------------------------
 ln -fsv ${dotfiles_dir}/tmux/tmux.conf $HOME/.tmux.conf
