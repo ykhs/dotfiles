@@ -23,6 +23,9 @@ export EDITOR=vim
 
 bindkey -e
 
+# 補完候補に色を付ける
+zstyle ':completion:*' list-colors "${LS_COLORS}"
+
 # history
 # ==============================================================================
 setopt hist_ignore_all_dups
