@@ -28,9 +28,14 @@ zstyle ':completion:*' list-colors "${LS_COLORS}"
 
 # history
 # ==============================================================================
-setopt hist_ignore_all_dups
 SAVEHIST=100000
 HISTSIZE=100000
+setopt hist_ignore_dups
+setopt hist_ignore_all_dups
+setopt hist_ignore_space
+setopt hist_find_no_dups
+setopt hist_reduce_blanks
+setopt hist_no_store
 
 # functions
 # ==============================================================================
@@ -47,3 +52,7 @@ done
 # aliases
 # ==============================================================================
 source $HOME/.aliases
+
+# local
+# ==============================================================================
+[ -f ~/.zshrc.local ] && source ~/.zshrc.local
